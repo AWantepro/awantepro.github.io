@@ -255,6 +255,32 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   /* color de la hamburguesa */
   .burger i{ color: var(--terracota); }
 }
+/* === Mobile menu visible al tocar (toggler por clase) === */
+@media (max-width:880px){
+  .burger{display:block}
+  .burger i{ color: var(--terracota); font-size:22px; line-height:1; }
+
+  /* menú desplegable */
+  #mobileMenu{
+    display:none;
+    position:fixed;
+    right:16px;
+    top:calc(var(--header-h) + 8px);
+    background:var(--blanco);
+    border:1px solid rgba(0,0,0,.06);
+    box-shadow:var(--shadow);
+    border-radius:12px;
+    overflow:hidden;
+    z-index:9999;
+  }
+  #mobileMenu a{display:block;padding:12px 16px;color:var(--gris-osc);font-weight:700}
+  #mobileMenu.open{ display:block; }  /* <<< clave: se muestra al tener .open */
+}
+
+/* Asegura que el nav de escritorio se oculte en mobile */
+@media (max-width:880px){
+  nav.primary{display:none}
+}
 
   </style>
 
@@ -461,19 +487,19 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   </footer>
 
 <script>
-  // Abrir/cerrar menú móvil sin autocierre por scroll
+  // Abre/cierra el menú móvil agregando/removiendo la clase .open
   function toggleMenu(force){
     const m = document.getElementById('mobileMenu');
     if(!m) return;
-    const show = (typeof force === 'boolean') ? force : !m.classList.contains('open');
-    m.classList.toggle('open', show);
+    const wantOpen = (typeof force === 'boolean') ? force : !m.classList.contains('open');
+    m.classList.toggle('open', wantOpen);
   }
 
-  // Cerrar al tocar fuera del menú
+  // Cerrar al tocar fuera
   document.addEventListener('click', (e)=>{
     const m = document.getElementById('mobileMenu');
     const b = document.querySelector('.burger');
-    if(!m) return;
+    if(!m || !b) return;
     if(m.classList.contains('open') && !m.contains(e.target) && !b.contains(e.target)){
       m.classList.remove('open');
     }
@@ -482,11 +508,6 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   // Cerrar con ESC
   document.addEventListener('keydown', (e)=>{
     if(e.key === 'Escape') document.getElementById('mobileMenu')?.classList.remove('open');
-  });
-
-  // Cerrar al navegar por ancla (#seccion)
-  window.addEventListener('hashchange', ()=>{
-    document.getElementById('mobileMenu')?.classList.remove('open');
   });
 </script>
 
