@@ -10,11 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  #mobileMenu{ display:none; z-index:9999; } /* asegurar superposición */
-#mobileMenu.open{ display:block; }         /* estado visible controlado por clase */
-.burger i{ color: var(--terracota); }      /* icono terracota, por si falta */
 
   <style>
+    /* Nav móvil (visibilidad y color del icono) */
+#mobileMenu{ display:none; z-index:9999; }
+#mobileMenu.open{ display:block; }
+.burger i{ color: var(--terracota); }
+
+/* Opcional: tarjetas blancas dentro de Ecosistema para más contraste */
+#ecosistema .card{ background:var(--blanco); }
+
     :root{--hueso:#F7F3E9;--gris-osc:#333333;--gris-claro:#f8f5f2;--blanco:#FFFFFF;--terracota:#d96c47;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.06);--shadow-soft:0 6px 18px rgba(0,0,0,.05);--container:1200px;--header-h:72px;--measure:820px;}
     html{scroll-behavior:smooth}
     *,*::before,*::after{box-sizing:border-box}
@@ -306,49 +311,34 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
       </div>
     </section>
 
-<div class="eco-services">
-  <h3 class="eco-sub">¿Cómo lo hacemos?</h3>
+<!-- FOCO LOCAL / Ecosistema Uruguay (con “¿Cómo lo hacemos?” adentro) -->
+<section id="ecosistema" aria-labelledby="eco-title">
+  <div class="container sp-32">
+    <div class="section-head">
+      <div class="eyebrow">FOCO LOCAL</div>
+      <h2 id="eco-title">Nuestro foco y territorio: Ecosistema Uruguay</h2>
+      <p class="muted">
+        Entendemos que operar en Uruguay tiene sus propias reglas. Como consultoría con base en Maldonado,
+        no solo traemos una perspectiva global, sino que tenemos un conocimiento profundo del territorio.
+        Esta área está diseñada para potenciar a las empresas y startups uruguayas, navegando juntas la
+        realidad del mercado local para construir proyectos sólidos y con identidad propia.
+      </p>
+    </div>
 
-  <div class="cards cards6">
-    <article class="card">
-      <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-handshake-angle"></i></div>
-      <h3><strong>Acompañamiento a fundadores</strong></h3>
-      <p>Te acompañamos en las etapas iniciales para dar forma y estructura a tu visión, insertando y fortaleciendo tu proyecto en las cadenas de valor locales.</p>
-    </article>
-
-    <article class="card">
-      <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
-      <h3><strong>Validación de proyectos piloto y MVPs</strong></h3>
-      <p>Diseñamos y ejecutamos experimentos de bajo costo con un análisis profundo del territorio y el mercado uruguayo para asegurar la viabilidad de tu idea antes de invertir grandes recursos.</p>
-    </article>
-
-    <article class="card">
-      <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
-      <h3><strong>Posicionamiento para el mercado uruguayo</strong></h3>
-      <p>Creamos un sistema de comunicación y una narrativa de marca que resuene con la cultura local, alineando tu valor con las expectativas del mercado.</p>
-    </article>
-
-    <article class="card">
-      <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></div>
-      <h3><strong>Diseño de Casos de Inversión</strong></h3>
-      <p>Preparamos tu proyecto para que sea invertible. Te ayudamos a construir y comunicar un caso de negocio sólido para atraer el capital que necesitas para crecer.</p>
-    </article>
-
-    <article class="card">
-      <div class="iconchip" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></div>
-      <h3><strong>Capacitación en innovación</strong></h3>
-      <p>Diseñamos e implementamos capacitaciones enfocadas en las necesidades de las mypes, incorporando prácticas de eco-innovación y economía circular.</p>
-    </article>
-
-    <article class="card">
-      <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></div>
-      <h3><strong>Diseño de estrategias de internacionalización</strong></h3>
-      <p>Creamos la hoja de ruta para franquicias y empresas locales con potencial de expansión glocal.</p>
-    </article>
+    <!-- Sub-bloque integrado -->
+    <div class="eco-services">
+      <h3 class="eco-sub">¿Cómo lo hacemos?</h3>
+      <div class="cards cards6">
+        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-handshake-angle"></i></div><h3><strong>Acompañamiento a fundadores</strong></h3><p>Te acompañamos en las etapas iniciales para dar forma y estructura a tu visión, insertando y fortaleciendo tu proyecto en las cadenas de valor locales.</p></article>
+        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-flask"></i></div><h3><strong>Validación de proyectos piloto y MVPs</strong></h3><p>Diseñamos y ejecutamos experimentos de bajo costo con un análisis profundo del territorio y el mercado uruguayo para asegurar la viabilidad de tu idea antes de invertir grandes recursos.</p></article>
+        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div><h3><strong>Posicionamiento para el mercado uruguayo</strong></h3><p>Creamos un sistema de comunicación y una narrativa de marca que resuene con la cultura local, alineando tu valor con las expectativas del mercado.</p></article>
+        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></div><h3><strong>Diseño de Casos de Inversión</strong></h3><p>Preparamos tu proyecto para que sea invertible. Te ayudamos a construir y comunicar un caso de negocio sólido para atraer el capital que necesitas para crecer.</p></article>
+        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></div><h3><strong>Capacitación en innovación</strong></h3><p>Diseñamos e implementamos capacitaciones enfocadas en las necesidades de las mypes, incorporando prácticas de eco-innovación y economía circular.</p></article>
+        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></div><h3><strong>Diseño de estrategias de internacionalización</strong></h3><p>Creamos la hoja de ruta para franquicias y empresas locales con potencial de expansión glocal.</p></article>
+      </div>
+    </div>
   </div>
-</div>
-
-
+</section>
 
     
     <section id="spo" class="container sp-32" aria-labelledby="spo-title">
