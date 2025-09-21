@@ -135,7 +135,10 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   /* debajo de tu bloque @media (max-width:880px) */
 #mobileMenu{
   display:none;
-  position:fixed;              /* fijo, no se mueve con el scroll */
+  position:fixed;             
+  #mobileMenu.open{ display:block; }    /* muestra el menú cuando tenga la clase .open */
+
+  /* fijo, no se mueve con el scroll */
   right:16px;
   top:calc(var(--header-h) + 8px);
   background:var(--blanco);
@@ -458,56 +461,34 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   </footer>
 
 <script>
-  // Abrir/cerrar menú móvil
+  // Abrir/cerrar menú móvil sin autocierre por scroll
   function toggleMenu(force){
     const m = document.getElementById('mobileMenu');
     if(!m) return;
-    const show = (typeof force === 'boolean') ? force : m.style.display !== 'block';
-    m.style.display = show ? 'block' : 'none';
+    const show = (typeof force === 'boolean') ? force : !m.classList.contains('open');
+    m.classList.toggle('open', show);
   }
 
-  (function(){
-    const header = document.querySelector('header.site-header');
-    const menu   = document.getElementById('mobileMenu');
-    const SHOW_AT = 12; // px scrolleados para mostrar header
-
-    function syncHeader(){
-      // desktop: siempre visible
-      if (window.innerWidth > 880){
-        header.classList.add('is-visible');
-        return;
-      }
-      // mobile: visible solo si hay un poco de scroll
-      if (window.scrollY > SHOW_AT) header.classList.add('is-visible');
-      else                          header.classList.remove('is-visible');
+  // Cerrar al tocar fuera del menú
+  document.addEventListener('click', (e)=>{
+    const m = document.getElementById('mobileMenu');
+    const b = document.querySelector('.burger');
+    if(!m) return;
+    if(m.classList.contains('open') && !m.contains(e.target) && !b.contains(e.target)){
+      m.classList.remove('open');
     }
+  }, {passive:true});
 
-    // estado inicial + listeners
-    syncHeader();
-    window.addEventListener('scroll', ()=>{
-      // cerrar el menú si estaba abierto
-      if(menu && menu.style.display === 'block') menu.style.display = 'none';
-      syncHeader();
-    }, {passive:true});
-    window.addEventListener('resize', syncHeader);
+  // Cerrar con ESC
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') document.getElementById('mobileMenu')?.classList.remove('open');
+  });
 
-    // cerrar al tocar fuera del menú
-    document.addEventListener('click', (e)=>{
-      const b = document.querySelector('.burger');
-      if(menu && menu.style.display === 'block' && !menu.contains(e.target) && !b.contains(e.target)){
-        menu.style.display = 'none';
-      }
-    }, {passive:true});
-
-    // cerrar con ESC
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape' && menu) menu.style.display = 'none';
-    });
-  })();
+  // Cerrar al navegar por ancla (#seccion)
+  window.addEventListener('hashchange', ()=>{
+    document.getElementById('mobileMenu')?.classList.remove('open');
+  });
 </script>
-
-
-
 
   </body>
 </html>
