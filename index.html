@@ -132,6 +132,22 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
 }
 /* ——— SOLO MOBILE ——— */
 @media (max-width:880px){
+  /* debajo de tu bloque @media (max-width:880px) */
+#mobileMenu{
+  display:none;
+  position:fixed;              /* fijo, no se mueve con el scroll */
+  right:16px;
+  top:calc(var(--header-h) + 8px);
+  background:var(--blanco);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:var(--shadow);
+  border-radius:12px;
+  overflow:hidden;
+  z-index:9999;                /* arriba de todo */
+}
+#mobileMenu.open{ display:block; }
+.burger i{ color: var(--terracota); }   /* color del ícono */
+
   /* Burger terracota */
   .burger i{ color: var(--terracota); }
 
@@ -424,7 +440,7 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
     m.classList.toggle('open', show);
   }
 
-  // Cerrar al tocar fuera del menú o al navegar por ancla
+  // Cerrar al tocar fuera o con ESC (no al scrollear)
   document.addEventListener('click', (e)=>{
     const m = document.getElementById('mobileMenu');
     const b = document.querySelector('.burger');
@@ -434,9 +450,8 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
     }
   }, {passive:true});
 
-  window.addEventListener('hashchange', ()=>{
-    const m = document.getElementById('mobileMenu');
-    if(m) m.classList.remove('open');
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape') document.getElementById('mobileMenu')?.classList.remove('open');
   });
 </script>
 
