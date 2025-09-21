@@ -150,6 +150,29 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   /* Un poco más de aire sobre el bloque “Áreas estratégicas” */
   #areas .section-head{margin-top:6px;}
 }
+/* ——— FIX móvil: aire + hero alineado + CTAs en una fila ——— */
+@media (max-width: 480px){
+
+  /* 1) Aire lateral extra en el “fold” y en la intro de Áreas */
+  .hero.container,
+  #areas.container{ padding-inline:24px; }            /* más respiro a ambos lados */
+  #areas .section-head{ padding-inline:2px; }         /* empuja apenas el título + párrafo */
+  #areas .section-head p{ padding-right:2px; }        /* evita que el párrafo quede “al ras” */
+
+  /* 2) Alinear “| Consultoría Estratégica” con AWante */
+  #hero-title{ align-items:flex-start; gap:.25rem; }  /* sube el bloque a línea base del logo */
+  #hero-title span[aria-label="AWante"] svg{
+    height:52px; vertical-align:baseline;             /* baja un toque el logo para igualar línea */
+  }
+  #hero-title .subtitle{
+    display:block; margin:2px 0 0 0; line-height:1.2; /* queda DEBAJO de AWante, bien pegado */
+  }
+
+  /* 3) Que los dos botones NO se apilen en mobile */
+  .cta-row{ flex-wrap:nowrap; gap:10px; }
+  .cta-row .btn{ padding:10px 14px; font-size:1rem; }
+  .cta-row .btn i{ font-size:1rem; }
+}
 
   </style>
 
