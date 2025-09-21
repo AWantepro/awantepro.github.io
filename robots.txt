@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://tu-usuario.github.io/tu-repo/sitemap.xml
+Sitemap: https://awantepro.github.io/sitio/sitemap.xml
