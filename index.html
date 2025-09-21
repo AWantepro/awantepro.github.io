@@ -131,6 +131,25 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
     height: auto;             /* recupera su alto */
   }
 }
+/* ——— Mobile polish (seguro, no toca desktop) ——— */
+@media (max-width: 480px){
+  /* Más aire lateral en todo el “fold” inicial y en la intro de Áreas */
+  .container{padding-inline:24px;}
+  .hero.container{padding-inline:24px;}
+
+  /* Alinear mejor el título del hero: “| Consultoría Estratégica” bajo AWante */
+  #hero-title{gap:.25rem; align-items:flex-start;}
+  #hero-title span[aria-label="AWante"] svg{height:52px;}     /* baja apenas el logo */
+  #hero-title .subtitle{
+    display:block;
+    margin-left:0;           /* lo lleva al borde izquierdo, debajo de AWante */
+    font-size:1.25rem;
+    line-height:1.15;
+  }
+
+  /* Un poco más de aire sobre el bloque “Áreas estratégicas” */
+  #areas .section-head{margin-top:6px;}
+}
 
   </style>
 
