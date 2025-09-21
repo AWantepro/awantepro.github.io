@@ -173,6 +173,26 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   .cta-row .btn{ padding:10px 14px; font-size:1rem; }
   .cta-row .btn i{ font-size:1rem; }
 }
+/* ====== MOBILE TUNE-UP (no afecta desktop) ====== */
+@media (max-width: 480px){
+
+  /* 1) aire lateral para que no se pegue a los bordes */
+  .container{ padding-inline:24px; }
+
+  /* 2) hero: que “| Consultoría Estratégica” baje y quede alineado a la izquierda */
+  #hero-title{ flex-direction:column; align-items:flex-start; gap:6px; }
+  #hero-title .subtitle{ margin-left:0; }
+
+  /* 3) hero: botones en dos columnas elegantes (sin apilar raro) */
+  .cta-row{ gap:12px; }
+  .cta-row .btn{ flex:1 1 calc(50% - 12px); }
+
+  /* 4) “Áreas estratégicas” + “Nuestra caja…”: más respiro arriba
+        y el párrafo separado del borde */
+  section.hero{ padding:36px 0 32px; }
+  #areas .section-head{ margin-top:8px; }
+  #areas .section-head .muted{ margin-top:6px; }
+}
 
   </style>
 
