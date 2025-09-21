@@ -29,8 +29,6 @@
     .burger{display:none;background:none;border:none;padding:10px;margin:-10px;cursor:pointer;font-size:1.2rem}
     @media (max-width:880px){nav.primary{display:none}.burger{display:block}#mobileMenu{display:none;position:absolute;right:16px;top:calc(var(--header-h) + 8px);background:var(--blanco);border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow);border-radius:12px;overflow:hidden}#mobileMenu a{display:block;padding:12px 16px;color:var(--gris-osc);font-weight:700}#mobileMenu .pipe{display:none}}
     section.hero{padding:56px 0 48px}
-    .hero .grid{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
-    @media (min-width:900px){.hero .grid{grid-template-columns:1.1fr .9fr;gap:40px}}
     h1{font-family:'Manrope',sans-serif;font-weight:800;line-height:1.1;margin:14px 0 8px;font-size:clamp(2rem,4.2vw,3rem)}
     .subtitle{font-family:'Manrope',sans-serif;font-weight:700;opacity:.9;font-size:clamp(1.25rem,2.2vw,2rem);letter-spacing:.005em}
     .signature{font-style:italic;opacity:.8;margin-top:6px}
@@ -65,8 +63,6 @@
     form .btn.primary{font-size:1.05rem;padding:14px 20px}
     .btn.full{width:100%;justify-content:center}
     section#ecosistema{background:var(--gris-claro);padding:36px 0}
-    .eco-grid{display:grid;gap:16px}
-    @media(min-width:900px){.eco-grid{grid-template-columns:1fr 1fr}}
     .eco-sub{font-family:'Manrope',sans-serif;font-weight:800;margin:6px 0 8px}
     .list{display:grid;gap:10px;margin-top:10px;padding-left:20px}
     .list li{margin-bottom: 10px;}
@@ -94,28 +90,28 @@
     .muted{opacity:.85}
   </style>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <meta property="og:title" content="AWante | Consultoría Estratégica" />
   <meta property="og:description" content="Desde tu idea hasta la acción." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://tu-usuario.github.io/tu-repo/assets/og/og-image.png" />
-  <meta property="og:url" content="https://tu-usuario.github.io/tu-repo/" />
+  <meta property="og:image" content="assets/og/og-image.png" />
+  <meta property="og:url" content="https://awantepro.github.io/sitio/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AWante | Consultoría Estratégica" />
   <meta name="twitter:description" content="Desde tu idea hasta la acción." />
-  <meta name="twitter:image" content="https://tu-usuario.github.io/tu-repo/assets/og/og-image.png" />
+  <meta name="twitter:image" content="assets/og/og-image.png" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "AWante | Consultoría Estratégica",
-    "url": "https://tu-usuario.github.io/tu-repo/",
-    "logo": "https://tu-usuario.github.io/tu-repo/assets/brand/AWante_lockup_horizontal_dark.svg",
+    "url": "https://awantepro.github.io/sitio/",
+    "logo": "assets/brand/AWante_lockup_horizontal_dark.svg",
     "sameAs": [
       "https://www.linkedin.com/in/arianawajntraub/",
       "https://wa.me/59898712064"
@@ -207,104 +203,4 @@
         <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-flask"></i></div><h3>Validación de proyectos piloto y MVPs</h3><p>Diseñamos y ejecutamos experimentos de bajo costo con un análisis profundo del territorio y el mercado uruguayo para asegurar la viabilidad de tu idea antes de invertir grandes recursos.</p></article>
         <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div><h3>Posicionamiento para el mercado uruguayo</h3><p>Creamos un sistema de comunicación y una narrativa de marca que resuene con la cultura local, alineando tu valor con las expectativas del mercado.</p></article>
         <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></div><h3>Diseño de Casos de Inversión</h3><p>Preparamos tu proyecto para que sea invertible. Te ayudamos a construir y comunicar un caso de negocio sólido para atraer el capital que necesitas para crecer.</p></article>
-        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></div><h3>Capacitación en innovación</h3><p>Diseñamos e implementamos capacitaciones enfocadas en las necesidades de las mypes, incorporando prácticas de eco-innovación y economía circular.</p></article>
-        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></div><h3>Diseño de estrategias de internacionalización</h3><p>Creamos la hoja de ruta para franquicias y empresas locales con potencial de expansión glocal.</p></article>
-      </div>
-    </section>
-
-    <section id="ecosistema" aria-labelledby="eco-title">
-      <div class="container sp-32">
-        <div class="section-head">
-          <div class="eyebrow">FOCO LOCAL</div>
-          <h2 id="eco-title">Nuestro foco y territorio: Ecosistema Uruguay</h2>
-          <p class="muted">Entendemos que operar en Uruguay tiene sus propias reglas. Como consultoría con base en Maldonado, no solo traemos una perspectiva global, sino que tenemos un conocimiento profundo del territorio. Esta área está diseñada para potenciar a las empresas y startups uruguayas, navegando juntas la realidad del mercado local para construir proyectos sólidos y con identidad propia.</p>
-        </div>
-      </div>
-    </section>
-    
-    <section id="spo" class="container sp-32" aria-labelledby="spo-title">
-      <div class="section-head">
-        <div class="eyebrow">SPO</div>
-        <h2 id="spo-title">SPO | SerProfesionalOnline</h2>
-        <h3 id="spo-q" class="spo-q">¿Sos profesional?</h3>
-      </div>
-      <div class="spo-box">
-        <p>SPO es nuestra unidad de negocio enfocada en entregar claridad y sistemas de acción para profesionales que buscan construir una presencia digital auténtica y efectiva. Es una solución pensada para potenciar tu marca personal sin que te consuma la vida.</p>
-        <div><a class="btn primary" href="https://serprofesionalonline.github.io/" target="_blank" rel="noopener">Conocé SPO</a></div>
-      </div>
-    </section>
-
-    <section id="newsletter" class="container sp-32" aria-labelledby="nl-title">
-      <div class="section-head">
-        <div class="eyebrow">Newsletter</div>
-        <h2 id="nl-title">La Minuta W.</h2>
-      </div>
-      <div class="nl-box">
-        <p>Un gabinete de curiosidades para profesionales inquietos. Curo y conecto ideas de estrategia, comunicación y arte para darte una ventaja en la perspectiva, no en la táctica. Pensamiento para aplicar, no para archivar.</p>
-        <div class="cta-row"><a class="btn primary" href="https://arianawajntraub.substack.com/subscribe?next=https%3A%2F%2Fsubstack.com%2F%40arianawajntraub&utm_source=profile-page&utm_medium=web&utm_campaign=substack_profile&just_signed_up=true" target="_blank" rel="noopener"><i class="fa-regular fa-paper-plane"></i> Suscribirme</a></div>
-      </div>
-    </section>
-
-    <section id="about" class="container sp-32" aria-labelledby="about-title">
-      <div class="section-head"><div class="eyebrow">AW</div><h2 id="about-title">Sobre AW</h2></div>
-      <div class="about-card">
-        <h3 class="about-sub">Sobre Ariana Wajntraub</h3>
-        <p>Mi trabajo es sentarme con vos, escuchar lo que nadie más está diciendo y traducir la complejidad en un plan de acción claro.</p>
-        <p>Mi recorrido cruza la estrategia, la comunicación, la innovación y el arte. Por eso, AWante no es una agencia ni una consultoría tradicional. Somos un laboratorio para la construcción de proyectos. Acompañamos a fundadores y equipos entusiastas a navegar sus momentos clave: el lanzamiento de una idea, el reordenamiento del caos, la búsqueda de una nueva dirección.</p>
-        <p class="linked-cta"><a href="https://linkedin.com/in/arianawajntraub" target="_blank" rel="noopener">Conectá conmigo en LinkedIn →</a></p>
-        <div class="socials"><a href="https://www.linkedin.com/in/arianawajntraub/" target="_blank" rel="noopener" aria-label="LinkedIn de Ariana Wajntraub"><i class="fa-brands fa-linkedin-in"></i></a></div>
-      </div>
-    </section>
-
-    <section id="contacto" class="container sp-32" aria-labelledby="ct-title">
-      <div class="section-head"><div class="eyebrow">Contacto</div><h2 id="ct-title">¿Conversamos?</h2><p class="muted">Contanos, ¿cuál es tu nudo hoy?</p></div>
-      <form action="https://formspree.io/f/movnggor" method="POST">
-        <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required></div>
-        <div class="field"><label for="empresa">Empresa/Proyecto</label><input id="empresa" name="Empresa" type="text" placeholder="Nombre de tu empresa o proyecto"></div>
-        <div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" placeholder="tu@correo.com" required></div>
-        <div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="Mensaje" placeholder="Contanos brevemente tu consulta"></textarea></div>
-        <input type="hidden" name="_subject" value="Nuevo contacto desde AWante">
-        <input type="text" name="_gotcha" style="display:none">
-        <button class="btn primary full" type="submit"><i class="fa-regular fa-envelope"></i> Enviar mensaje</button>
-      </form>
-    </section>
-  </main>
-
-  <footer role="contentinfo">
-    <div class="foot-wrap container">
-      <div class="foot-brand" aria-label="AWante — Consultoría Estratégica">
-        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 32" role="img" aria-label="AWante" style="height:28px;width:auto">
-          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
-          </g>
-          <g><text x="58" y="24" class="logo-text">ante</text></g>
-        </svg>
-      </div>
-      <div class="foot-slogan">Desde tu idea hasta la acción.</div>
-      <div class="foot-socials" aria-label="Redes y contacto">
-        <a href="https://linkedin.com/in/arianawajntraub" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://wa.me/59898712064?text=Hola%20AWante%2C%20necesito%20ayuda%20para%20mi%20proyecto" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="mailto:arianawajntraub@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
-      </div>
-      <div class="copyright">© 2025 AWante. Todos los derechos reservados.</div>
-    </div>
-  </footer>
-
-  <script>
-    function toggleMenu(force){
-      const m = document.getElementById('mobileMenu');
-      const show = typeof force === 'boolean' ? force : m.style.display !== 'block';
-      m.style.display = show ? 'block' : 'none';
-    }
-    window.addEventListener('scroll', ()=>{ const m=document.getElementById('mobileMenu'); if(m) m.style.display='none'; });
-  </script>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-</body>
-</html>
+        <article class="card"><div class="iconchip" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></div><h3>Capacitación en innovación</h3><p>Diseñamos e implementamos capacitaciones enfocadas en las
