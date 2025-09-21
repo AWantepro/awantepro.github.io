@@ -355,6 +355,15 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   #mobileMenu a{ display:block; padding:12px 16px; color:var(--gris-osc); font-weight:700; }
   .burger i{ color: var(--terracota); font-size:22px; line-height:1; }
 }
+/* --- Mostrar hamburguesa SOLO cuando hay scroll (mobile) --- */
+@media (max-width:880px){
+  .burger{ display:none; }                      /* oculta al cargar */
+  header.site-header.scrolled .burger{ display:block; }  /* aparece con scroll */
+  /* el menú se muestra cuando tiene .open (ya lo tenés en tu CSS) */
+  #mobileMenu{ display:none; position:fixed; right:16px; top:calc(var(--header-h) + 8px); z-index:9999; }
+  #mobileMenu.open{ display:block; }
+  .burger i{ color: var(--terracota); }         /* terracota */
+}
 
   </style>
 
@@ -389,6 +398,7 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
     ]
   }
   </script>
+
 </head>
 <body>
   <header class="site-header" role="banner">
@@ -604,6 +614,17 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
     }
   });
 
+})();
+</script>
+<script>
+(function(){
+  const header = document.querySelector('header.site-header');
+  function onScroll(){
+    if(window.scrollY > 16){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll(); // estado inicial
 })();
 </script>
 
