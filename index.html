@@ -132,24 +132,31 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
 }
 /* ——— SOLO MOBILE ——— */
 @media (max-width:880px){
-  /* debajo de tu bloque @media (max-width:880px) */
+/* ——— Menú móvil (estilos dentro de @media max-width:880px) ——— */
 #mobileMenu{
-  display:none;
-  position:fixed;             
-  #mobileMenu.open{ display:block; }    /* muestra el menú cuando tenga la clase .open */
-
-  /* fijo, no se mueve con el scroll */
+  position: fixed;
   right:16px;
-  top:calc(var(--header-h) + 8px);
-  background:var(--blanco);
+  top: calc(var(--header-h) + 8px);
+  background: var(--blanco);
   border:1px solid rgba(0,0,0,.06);
-  box-shadow:var(--shadow);
+  box-shadow: var(--shadow);
   border-radius:12px;
   overflow:hidden;
-  z-index:9999;                /* arriba de todo */
+  z-index:9999;
+  display:none;                /* oculto por defecto */
 }
-#mobileMenu.open{ display:block; }
-.burger i{ color: var(--terracota); }   /* color del ícono */
+#mobileMenu.open{ display:block; } /* visible cuando tiene .open */
+
+.burger{ display:block; }          /* asegura que el botón exista en mobile */
+.burger i{ color: var(--terracota); }
+
+#mobileMenu a{
+  display:block;
+  padding:12px 16px;
+  color: var(--gris-osc);
+  font-weight:700;
+}
+ /* color del ícono */
 
   /* Burger terracota */
   .burger i{ color: var(--terracota); }
@@ -487,15 +494,15 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   </footer>
 
 <script>
-  // Abre/cierra el menú móvil agregando/removiendo la clase .open
+  // Abre/cierra añadiendo/quitarndo la clase .open (no toques style.display)
   function toggleMenu(force){
     const m = document.getElementById('mobileMenu');
     if(!m) return;
-    const wantOpen = (typeof force === 'boolean') ? force : !m.classList.contains('open');
-    m.classList.toggle('open', wantOpen);
+    const show = (typeof force === 'boolean') ? force : !m.classList.contains('open');
+    m.classList.toggle('open', show);
   }
 
-  // Cerrar al tocar fuera
+  // Cerrar al tocar fuera del menú o con ESC
   document.addEventListener('click', (e)=>{
     const m = document.getElementById('mobileMenu');
     const b = document.querySelector('.burger');
@@ -505,10 +512,26 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
     }
   }, {passive:true});
 
-  // Cerrar con ESC
   document.addEventListener('keydown', (e)=>{
     if(e.key === 'Escape') document.getElementById('mobileMenu')?.classList.remove('open');
   });
+
+  // Mostrar el header (y por ende la hamburguesa) tras un mini scroll en mobile
+  (function(){
+    const header = document.querySelector('header.site-header');
+    const SHOW_AT = 8; // px
+    function onScroll(){
+      if(window.innerWidth <= 880){
+        if(window.scrollY > SHOW_AT) header.classList.add('is-visible');
+        else header.classList.remove('is-visible');
+      }else{
+        header.classList.add('is-visible'); // desktop siempre visible
+      }
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+  })();
 </script>
 
   </body>
