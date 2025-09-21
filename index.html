@@ -338,6 +338,23 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
   #mobileMenu.open{ display:block !important; }   /* se muestra al abrir */
   #mobileMenu a{ display:block; padding:12px 16px; color:var(--gris-osc); font-weight:700; }
 }
+/* Mostrar la hamburguesa SOLO después de scrollear (mobile) */
+@media (max-width:880px){
+  .burger{ display:none; }                     /* oculta al cargar */
+  nav.primary{ display:none; }                 /* oculta nav de escritorio en mobile */
+  header.site-header.scrolled .burger{ 
+    display:block; 
+  }
+  /* menú desplegable controlado por clase .open */
+  #mobileMenu{
+    display:none; position:fixed; right:16px; top:calc(var(--header-h) + 8px);
+    background:var(--blanco); border:1px solid rgba(0,0,0,.06);
+    box-shadow:var(--shadow); border-radius:12px; overflow:hidden; z-index:9999;
+  }
+  #mobileMenu.open{ display:block; }
+  #mobileMenu a{ display:block; padding:12px 16px; color:var(--gris-osc); font-weight:700; }
+  .burger i{ color: var(--terracota); font-size:22px; line-height:1; }
+}
 
   </style>
 
@@ -555,35 +572,41 @@ svg{shape-rendering:geometricPrecision; overflow:visible}
 
 <script>
 (function(){
-  const btn  = document.querySelector('.burger');
-  const menu = document.getElementById('mobileMenu');
+  const header = document.querySelector('header.site-header');
+  const btn    = document.querySelector('.burger');
+  const menu   = document.getElementById('mobileMenu');
 
-  // Toggle por clase .open (nada de inline styles)
+  // 1) Mostrar la hamburguesa recién al scrollear 16px
+  function syncScroll(){
+    if(window.scrollY > 16){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  syncScroll();
+  window.addEventListener('scroll', syncScroll, {passive:true});
+
+  // 2) Abrir/cerrar menú
   window.toggleMenu = function(force){
-    if(!btn || !menu) return;
+    if(!menu || !btn) return;
     const show = (typeof force === 'boolean') ? force : !menu.classList.contains('open');
     menu.classList.toggle('open', show);
     btn.setAttribute('aria-expanded', show ? 'true' : 'false');
   };
 
-  // Cerrar al tocar fuera
+  // 3) Cerrar al tocar fuera o con ESC
   document.addEventListener('click', (e)=>{
-    if(!menu || !btn) return;
     if(menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)){
-      menu.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
+      menu.classList.remove('open'); btn.setAttribute('aria-expanded','false');
     }
   }, {passive:true});
-
-  // Cerrar con ESC
   document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape' && menu?.classList.contains('open')){
-      menu.classList.remove('open');
-      btn.setAttribute('aria-expanded','false');
+    if(e.key === 'Escape' && menu.classList.contains('open')){
+      menu.classList.remove('open'); btn.setAttribute('aria-expanded','false');
     }
   });
+
 })();
 </script>
+
 
   </body>
 </html>
