@@ -225,4 +225,75 @@
         <h3 id="spo-q" class="spo-q">¿Sos profesional?</h3>
       </div>
       <div class="spo-box">
-        <p>SPO es nuestra unidad de negocio enfocada en entregar claridad y sistemas de acción para profesionales que buscan construir una presencia digital auténtica y efectiva. Es una solución pensada para potenciar tu marca personal
+        <p>SPO es nuestra unidad de negocio enfocada en entregar claridad y sistemas de acción para profesionales que buscan construir una presencia digital auténtica y efectiva. Es una solución pensada para potenciar tu marca personal sin que te consuma la vida.</p>
+        <div><a class="btn primary" href="https://serprofesionalonline.github.io/" target="_blank" rel="noopener">Conocé SPO</a></div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="container sp-32" aria-labelledby="nl-title">
+      <div class="section-head">
+        <div class="eyebrow">Newsletter</div>
+        <h2 id="nl-title">La Minuta W.</h2>
+      </div>
+      <div class="nl-box">
+        <p>Un gabinete de curiosidades para profesionales inquietos. Curo y conecto ideas de estrategia, comunicación y arte para darte una ventaja en la perspectiva, no en la táctica. Pensamiento para aplicar, no para archivar.</p>
+        <div class="cta-row"><a class="btn primary" href="https://arianawajntraub.substack.com/subscribe?next=https%3A%2F%2Fsubstack.com%2F%40arianawajntraub&utm_source=profile-page&utm_medium=web&utm_campaign=substack_profile&just_signed_up=true" target="_blank" rel="noopener"><i class="fa-regular fa-paper-plane"></i> Suscribirme</a></div>
+      </div>
+    </section>
+
+    <section id="about" class="container sp-32" aria-labelledby="about-title">
+      <div class="section-head"><div class="eyebrow">AW</div><h2 id="about-title">Sobre AW</h2></div>
+      <div class="about-card">
+        <h3 class="about-sub">Sobre Ariana Wajntraub</h3>
+        <p>Mi trabajo es sentarme con vos, escuchar lo que nadie más está diciendo y traducir la complejidad en un plan de acción claro.</p>
+        <p>Mi recorrido cruza la estrategia, la comunicación, la innovación y el arte. Por eso, AWante no es una agencia ni una consultoría tradicional. Somos un laboratorio para la construcción de proyectos. Acompañamos a fundadores y equipos entusiastas a navegar sus momentos clave: el lanzamiento de una idea, el reordenamiento del caos, la búsqueda de una nueva dirección.</p>
+        <p class="linked-cta"><a href="https://linkedin.com/in/arianawajntraub" target="_blank" rel="noopener">Conectá conmigo en LinkedIn →</a></p>
+        <div class="socials"><a href="https://www.linkedin.com/in/arianawajntraub/" target="_blank" rel="noopener" aria-label="LinkedIn de Ariana Wajntraub"><i class="fa-brands fa-linkedin-in"></i></a></div>
+      </div>
+    </section>
+
+    <section id="contacto" class="container sp-32" aria-labelledby="ct-title">
+      <div class="section-head"><div class="eyebrow">Contacto</div><h2 id="ct-title">¿Conversamos?</h2><p class="muted">Contanos, ¿cuál es tu nudo hoy?</p></div>
+      <form action="https://formspree.io/f/movnggor" method="POST">
+        <div class="field"><label for="nombre">Nombre</label><input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required></div>
+        <div class="field"><label for="empresa">Empresa/Proyecto</label><input id="empresa" name="Empresa" type="text" placeholder="Nombre de tu empresa o proyecto"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" placeholder="tu@correo.com" required></div>
+        <div class="field"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="Mensaje" placeholder="Contanos brevemente tu consulta"></textarea></div>
+        <input type="hidden" name="_subject" value="Nuevo contacto desde AWante">
+        <input type="text" name="_gotcha" style="display:none">
+        <button class="btn primary full" type="submit"><i class="fa-regular fa-envelope"></i> Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="foot-wrap container">
+      <div class="foot-brand" aria-label="AWante — Consultoría Estratégica">
+        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 32" role="img" aria-label="AWante" style="height:28px;width:auto">
+          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
+          </g>
+          <g><text x="58" y="24" class="logo-text">ante</text></g>
+        </svg>
+      </div>
+      <div class="foot-slogan">Desde tu idea hasta la acción.</div>
+      <div class="foot-socials" aria-label="Redes y contacto">
+        <a href="https://linkedin.com/in/arianawajntraub" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/59898712064?text=Hola%20AWante%2C%20necesito%20ayuda%20para%20mi%20proyecto" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:arianawajntraub@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+      </div>
+      <div class="copyright">© 2025 AWante. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(force){
+      const m = document.getElementById('mobileMenu');
+      const show = typeof force === 'boolean' ? force : m.style.display !== 'block';
+      m.style.display = show ? 'block' : 'none';
+    }
+    window.addEventListener('scroll', ()=>{ const m=document.getElementById('mobileMenu'); if(m) m.style.display='none'; });
+  </script>
+
+  </body>
+</html>
