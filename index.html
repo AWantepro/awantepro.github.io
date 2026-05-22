@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AWante | Consultoría Estratégica — Desde tu idea hasta la acción</title>
+  <meta name="description" content="AWante | Consultoría Estratégica. Acompañamos proyectos, modelo de negocio y equipos para que decisiones clave se tomen con criterio y se ejecuten. Uruguay — Maldonado." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+
+  <style>
+    /* que la hamburguesa se vea siempre en mobile */
+    .burger i{ color: var(--terracota); font-size: 22px; line-height: 1; }
+
+    /* que el menú desplegado quede por encima de todo */
+    #mobileMenu{ z-index: 9999; }
+
+    /* Nav móvil (visibilidad y color del icono) */
+    #mobileMenu{ display:none; z-index:9999; }
+    #mobileMenu.open{ display:block; }
+    .burger i{ color: var(--terracota); }
+
+    /* Opcional: tarjetas blancas dentro de Ecosistema para más contraste */
+    #ecosistema .card{ background:var(--blanco); }
+
+    /* MENÚ MÓVIL: aparece sólo con la clase .open */
+    @media (max-width:880px){
+      .burger{ display:block; }
+      nav.primary{ display:none; }
+
+      #mobileMenu{
+        display:none;
+        position:fixed;
+        right:16px;
+        top:calc(var(--header-h) + 8px);
+        background:var(--blanco);
+        border:1px solid rgba(0,0,0,.06);
+        box-shadow:var(--shadow);
+        border-radius:12px;
+        overflow:hidden;
+        z-index:9999;
+      }
+      #mobileMenu.open{ display:block; }
+
+      .burger i{ color: var(--terracota); }
+    }
+
+    :root{
+      --hueso:#F7F3E9;--gris-osc:#333333;--gris-claro:#f8f5f2;--blanco:#FFFFFF;
+      --terracota:#d96c47;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.06);
+      --shadow-soft:0 6px 18px rgba(0,0,0,.05);--container:1200px;
+      --header-h:72px;--measure:820px;
+    }
+    html{scroll-behavior:smooth}
+    *,*::before,*::after{box-sizing:border-box}
+    body{
+      margin:0;background:var(--hueso);color:var(--gris-osc);
+      font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6
+    }
+    a{color:var(--terracota);text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:var(--container);margin-inline:auto;padding:0 20px}
+    header.site-header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(247,243,233,.92);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid rgba(0,0,0,.06)
+    }
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand-mark{height:34px;width:auto;display:block}
+    nav.primary{display:flex;align-items:center;gap:20px;font-weight:700}
+    nav.primary a{color:var(--gris-osc)}
+    nav.primary .pipe{opacity:.45}
+    .burger{display:none;background:none;border:none;padding:10px;margin:-10px;cursor:pointer;font-size:1.2rem}
+    #mobileMenu{display:none}
+    @media (max-width:880px){
+      nav.primary{display:none}
+      .burger{display:block}
+      #mobileMenu{
+        display:none;position:absolute;right:16px;top:calc(var(--header-h) + 8px);
+        background:var(--blanco);border:1px solid rgba(0,0,0,.06);
+        box-shadow:var(--shadow);border-radius:12px;overflow:hidden
+      }
+      #mobileMenu a{
+        display:block;padding:12px 16px;color:var(--gris-osc);font-weight:700
+      }
+      #mobileMenu .pipe{display:none}
+    }
+    section.hero{padding:56px 0 48px}
+    h1{
+      font-family:'Manrope',sans-serif;font-weight:800;line-height:1.1;
+      margin:14px 0 8px;font-size:clamp(2rem,4.2vw,3rem)
+    }
+    .subtitle{
+      font-family:'Manrope',sans-serif;font-weight:700;opacity:.9;
+      font-size:clamp(1.25rem,2.2vw,2rem);letter-spacing:.005em
+    }
+    .signature{font-style:italic;opacity:.8;margin-top:6px}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;border-radius:999px;
+      padding:12px 16px;font-family:'Manrope',sans-serif;font-weight:500;
+      border:1.5px solid transparent;transition:.2s ease;cursor:pointer
+    }
+    .btn.primary{background:var(--terracota);color:var(--blanco)}
+    .btn.primary:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent;border-color:var(--terracota);color:var(--terracota)}
+    .hero .measure{max-width:var(--measure)}
+    .hero .measure > *{max-width:var(--measure)}
+    @media(min-width:900px){.hero .lead{letter-spacing:.01em}}
+    section{scroll-margin-top:calc(var(--header-h) + 16px)}
+    .section-head{margin-bottom:18px}
+    .eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;opacity:.7}
+    h2{
+      font-family:'Manrope',sans-serif;font-weight:800;line-height:1.2;
+      margin:6px 0 10px;font-size:clamp(1.6rem,3.2vw,2.2rem)
+    }
+    p{margin:0 0 10px}
+    section#about .about-card{
+      background:var(--blanco);border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-soft)
+    }
+    #about .about-sub{
+      font-family:'Manrope',sans-serif;font-weight:800;
+      margin:4px 0 8px;font-size:1.35rem
+    }
+    #about .linked-cta{margin-top:12px}
+    .socials{display:flex;gap:10px;margin-top:10px}
+    .socials a{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:40px;height:40px;border-radius:999px;background:var(--gris-claro);color:var(--gris-osc)
+    }
+    section#servicios, section#areas{padding:32px 0}
+    .cards{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
+    .card{
+      background:var(--gris-claro);border:1px solid rgba(0,0,0,.06);
+      border-radius:16px;padding:18px;box-shadow:var(--shadow-soft)
+    }
+    .card h3{
+      font-family:'Manrope',sans-serif;font-weight:700;margin:8px 0
+    }
+    .iconchip{
+      width:56px;height:48px;border-radius:999px;background:var(--blanco);
+      display:inline-flex;align-items:center;justify-content:center;
+      box-shadow:var(--shadow-soft);position:relative
+    }
+    .iconchip::after{
+      content:"";position:absolute;inset:-3px;border-radius:999px;
+      border:1px solid rgba(0,0,0,.06)
+    }
+    .iconchip i{font-size:26px;color:var(--gris-osc)}
+    .card p{margin-top:6px}
+    .btn.tiny{padding:8px 12px;border-width:1.5px;font-size:.9rem}
+    form .btn.primary{font-size:1.05rem;padding:14px 20px}
+    .btn.full{width:100%;justify-content:center}
+    section#ecosistema{background:var(--gris-claro);padding:36px 0}
+    #ecosistema .card{ background: var(--blanco); }
+    .eco-sub{font-family:'Manrope',sans-serif;font-weight:800;margin:6px 0 8px}
+    .list{display:grid;gap:10px;margin-top:10px;padding-left:20px}
+    .list li{margin-bottom: 10px;}
+    section#spo .spo-box{
+      background:var(--blanco);border:1px solid rgba(0,0,0,.06);
+      border-radius:16px;padding:20px;box-shadow:var(--shadow-soft)
+    }
+    #spo .spo-q{
+      font-family:'Manrope',sans-serif;font-weight:800;
+      margin:6px 0 12px;font-size:clamp(1.2rem,2.2vw,1.6rem)
+    }
+    form{display:grid;gap:12px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field input,.field textarea{
+      padding:12px 14px;border-radius:12px;
+      border:1px solid rgba(0,0,0,.12);background:var(--blanco);font:inherit
+    }
+    .field textarea{min-height:130px;resize:vertical}
+    footer{
+      background:var(--gris-osc);color:var(--blanco);margin-top:40px
+    }
+    footer .foot-wrap{
+      display:grid;gap:14px;justify-items:center;padding:28px 20px;
+      text-align:center;max-width:var(--container);margin-inline:auto
+    }
+    .foot-brand{
+      font-family:'Manrope',sans-serif;font-weight:700;letter-spacing:.02em
+    }
+    .foot-slogan{
+      font-family:'Manrope',sans-serif;font-weight:500;opacity:.9
+    }
+    .foot-socials{display:flex;gap:12px}
+    .foot-socials a{
+      width:42px;height:42px;border-radius:999px;background:#444;
+      color:var(--blanco);display:inline-flex;align-items:center;justify-content:center
+    }
+    .copyright{opacity:.8;font-size:.9rem}
+    .cards6{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:720px){.cards6{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){.cards6{grid-template-columns:repeat(3,1fr)}}
+    .logo-text{
+      font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.02em;
+      fill:var(--gris-osc);text-rendering:geometricPrecision;dominant-baseline:alphabetic
+    }
+    svg{shape-rendering:geometricPrecision}
+    footer .logo-text{fill:#fff}
+    .sp-32{padding:32px 0}
+    .lead{font-size:1.1rem;letter-spacing:.01em}
+    .muted{opacity:.85}
+
+    svg{shape-rendering:geometricPrecision; overflow:visible}
+
+    @media (max-width: 480px){
+      .container{padding-left:22px;padding-right:22px}
+      .section-head,
+      .cards,
+      .cards6,
+      .eco-grid{padding-left:2px;padding-right:2px}
+      .card,
+      .about-card,
+      .spo-box,
+      .list li{padding:18px;border-radius:16px}
+      .hero .measure{max-width:100%}
+    }
+
+    @media (max-width:880px){
+      header.site-header{
+        transition:transform .28s ease, opacity .28s ease, height .28s ease;
+        transform: translateY(-100%);
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+      }
+      header.site-header.is-visible{
+        transform: translateY(0);
+        opacity: 1);
+        height: auto;
+      }
+      #mobileMenu{
+        position: fixed;
+        right:16px;
+        top: calc(var(--header-h) + 8px);
+        background: var(--blanco);
+        border:1px solid rgba(0,0,0,.06);
+        box-shadow: var(--shadow);
+        border-radius:12px;
+        overflow:hidden;
+        z-index:9999;
+      }
+      .burger i{ color: var(--terracota); }
+    }
+
+    @media (max-width:880px){
+      .burger{display:block}
+      .burger i{ color: var(--terracota); font-size:22px; line-height:1; }
+
+      #mobileMenu{
+        display:none;
+        position:fixed;
+        right:16px;
+        top:calc(var(--header-h) + 8px);
+        background:var(--blanco);
+        border:1px solid rgba(0,0,0,.06);
+        box-shadow:var(--shadow);
+        border-radius:12px;
+        overflow:hidden;
+        z-index:9999;
+      }
+      #mobileMenu a{display:block;padding:12px 16px;color:var(--gris-osc);font-weight:700}
+      #mobileMenu.open{ display:block; }
+    }
+
+    @media (max-width:880px){
+      nav.primary{display:none}
+    }
+
+    @media (max-width:880px){
+      header.site-header{
+        transform:none !important;
+        opacity:1 !important;
+        height:auto !important;
+        overflow:visible !important;
+      }
+      .burger{ display:block !important; }
+      nav.primary{ display:none !important; }
+      .burger i{ color: var(--terracota) !important; font-size:22px; line-height:1; }
+      #mobileMenu{
+        display:none !important;
+        position:fixed; right:16px; top:calc(var(--header-h) + 8px);
+        background:var(--blanco);
+        border:1px solid rgba(0,0,0,.06);
+        box-shadow:var(--shadow); border-radius:12px; overflow:hidden;
+        z-index:9999;
+      }
+      #mobileMenu.open{ display:block !important; }
+      #mobileMenu a{ display:block; padding:12px 16px; color:var(--gris-osc); font-weight:700; }
+    }
+
+    @media (max-width:880px){
+      .burger{ display:none; }
+      nav.primary{ display:none; }
+      header.site-header.scrolled .burger{
+        display:block;
+      }
+      #mobileMenu{
+        display:none; position:fixed; right:16px; top:calc(var(--header-h) + 8px);
+        background:var(--blanco); border:1px solid rgba(0,0,0,.06);
+        box-shadow:var(--shadow); border-radius:12px; overflow:hidden; z-index:9999;
+      }
+      #mobileMenu.open{ display:block; }
+      #mobileMenu a{ display:block; padding:12px 16px; color:var(--gris-osc); font-weight:700; }
+      .burger i{ color: var(--terracota); font-size:22px; line-height:1; }
+    }
+
+    @media (max-width:880px){
+      .burger{ display:none; }
+      header.site-header.scrolled .burger{ display:block; }
+      #mobileMenu{ display:none; position:fixed; right:16px; top:calc(var(--header-h) + 8px); z-index:9999; }
+      #mobileMenu.open{ display:block; }
+      .burger i{ color: var(--terracota); }
+    }
+  </style>
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <meta property="og:title" content="AWante | Consultoría Estratégica" />
+  <meta property="og:description" content="Desde tu idea hasta la acción." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:url" content="https://awante.wajntraub.ar/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AWante | Consultoría Estratégica" />
+  <meta name="twitter:description" content="Desde tu idea hasta la acción." />
+  <meta name="twitter:image" content="assets/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AWante | Consultoría Estratégica",
+    "url": "https://awante.wajntraub.ar/",
+    "logo": "assets/brand/AWante_lockup_horizontal_dark.svg",
+    "sameAs": [
+      "https://www.linkedin.com/in/arianawajntraub/",
+      "https://wa.me/541154687647"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container nav-wrap">
+      <a href="#top" class="brand site-logo" aria-label="AWante — Consultoría Estratégica">
+        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 32" role="img" aria-label="AWante">
+          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#333333" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
+          </g>
+          <g>
+            <text x="58" y="24" class="logo-text">ante</text>
+          </g>
+        </svg>
+      </a>
+      <nav class="primary" aria-label="Navegación principal">
+        <a href="#areas">Áreas estratégicas</a>
+        <span class="pipe">|</span>
+        <a href="#ecosistema">Ecosistema Uruguay</a>
+        <span class="pipe">|</span>
+        <a href="#exposiciones">Exposiciones clave</a>
+        <span class="pipe">|</span>
+        <a href="#about">Sobre AW</a>
+        <span class="pipe">|</span>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="burger"
+        type="button"
+        aria-label="Abrir menú"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+        onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div id="mobileMenu" role="menu" aria-label="Menú móvil">
+        <a href="#areas" onclick="toggleMenu(false)">Áreas estratégicas</a>
+        <a href="#ecosistema" onclick="toggleMenu(false)">Ecosistema Uruguay</a>
+        <a href="#exposiciones" onclick="toggleMenu(false)">Exposiciones clave</a>
+        <a href="#about" onclick="toggleMenu(false)">Sobre AW</a>
+        <a href="#contacto" onclick="toggleMenu(false)">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="measure">
+        <h1 id="hero-title" style="display:flex;align-items:baseline;gap:.35rem;flex-wrap:nowrap">
+          <span aria-label="AWante" style="display:inline-block;line-height:0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" style="height:48px;width:auto;vertical-align:baseline">
+              <g transform="translate(0,2) scale(0.88)" fill="none" stroke="#333333">
+                <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <g>
+                <text x="88" y="46" class="logo-text hero">ante</text>
+              </g>
+            </svg>
+          </span>
+          <span class="subtitle">| Consultoría Estratégica</span>
+        </h1>
+        <p class="lead">Desde tu idea hasta la acción.</p>
+        <p class="signature">by Ariana Wajntraub</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contacto"><i class="fa-regular fa-message"></i> Hablemos</a>
+          <a class="btn ghost" href="#areas"><i class="fa-solid fa-toolbox"></i> Ver caja de herramientas</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="areas" class="container sp-32" aria-labelledby="tools-title">
+      <div class="section-head">
+        <div class="eyebrow">Áreas estratégicas</div>
+        <h2 id="tools-title">Nuestra caja de herramientas</h2>
+        <p class="muted">
+          Nuestra metodología es flexible y se adapta a tu necesidad. Estas son nuestras áreas de acción estratégica, donde aplicamos nuestra experiencia para desatar nudos y construir caminos.
+        </p>
+      </div>
+
+      <div class="cards">
+        <!-- 1. Puesta en marcha de proyectos -->
+        <article class="card" aria-labelledby="a1">
+          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-rocket"></i></div>
+          <h3 id="a1">Puesta en marcha de proyectos</h3>
+          <p>
+            Para fundadores y equipos con iniciativas relevantes que no pueden seguir en modo
+            “ver qué pasa”. Trabajamos sobre un proyecto concreto: definimos alcance, objetivos,
+            supuestos clave y un plan de ejecución realista, con responsables y criterios para
+            avanzar o frenar a tiempo.
+          </p>
+          <p class="muted">
+            Usamos esta caja cuando hay que decidir qué proyecto vale la pena poner en marcha
+            y bajo qué condiciones, antes de seguir gastando tiempo y recursos dispersos.
+          </p>
+        </article>
+
+        <!-- 2. Posicionamiento y modelo de negocio -->
+        <article class="card" aria-labelledby="a2">
+          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></div>
+          <h3 id="a2">Posicionamiento y modelo de negocio</h3>
+          <p>
+            Para empresas y profesionales con ofertas sólidas pero poco claras hacia afuera.
+            Revisamos qué se vende hoy, a quién, con qué precios y argumentos, y definimos
+            un esquema de oferta y una narrativa que permitan sostener mejores conversaciones
+            comerciales y decisiones de inversión.
+          </p>
+          <p class="muted">
+            Acá el foco está en decidir qué dejar de ofrecer, qué priorizar y cómo explicarlo
+            de forma que alguien pueda entender por qué elegirte y cuánto estás proponiendo cobrar.
+          </p>
+        </article>
+
+        <!-- 3. Desarrollo de capacidades internas -->
+        <article class="card" aria-labelledby="a3">
+          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-users-gear"></i></div>
+          <h3 id="a3">Desarrollo de capacidades internas</h3>
+          <p>
+            Para equipos donde todo pasa por las mismas personas y se hace difícil sostener el crecimiento.
+            Diseñamos sistemas de decisión, espacios de trabajo y criterios compartidos para que más gente
+            pueda tomar buenas decisiones sin depender siempre del mismo núcleo.
+          </p>
+          <p class="muted">
+            No trabajamos sobre “motivación” ni “clima”, sino sobre cómo se decide: quién decide qué,
+            con qué información y con qué reglas explícitas.
+          </p>
+        </article>
+
+        <!-- 4. Ecosistema Uruguay -->
+        <article class="card" aria-labelledby="a4">
+          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
+          <h3 id="a4">Ecosistema Uruguay</h3>
+          <p>
+            Para proyectos que necesitan encajar en Uruguay: programas de apoyo, regulaciones, actores
+            y formas reales de hacer. Ayudamos a ajustar el diseño, los supuestos y el relato para que
+            el proyecto tenga sentido en este territorio y pueda dialogar con quienes toman decisiones.
+          </p>
+          <p class="muted">
+            Suele usarse cuando hay que presentar un proyecto a un fondo, programa o aliado local y
+            hace falta ordenar números, hipótesis y narrativa antes de salir a golpear puertas.
+          </p>
+          <p><a class="btn tiny ghost" href="#ecosistema">→ Ver Foco Local</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FOCO LOCAL / Ecosistema Uruguay -->
+    <section id="ecosistema" aria-labelledby="eco-title">
+      <div class="container sp-32">
+        <div class="section-head">
+          <div class="eyebrow">FOCO LOCAL</div>
+          <h2 id="eco-title">Ecosistema Uruguay: proyectos situados en el territorio</h2>
+          <p class="muted">
+            Operar en Uruguay implica entender un ecosistema propio: regulación, tiempos del Estado,
+            formas de relación y actores clave. Desde Maldonado trabajamos con empresas, startups y organizaciones
+            que quieren diseñar proyectos y casos de negocio que funcionen acá, no solo en presentaciones.
+          </p>
+        </div>
+
+        <div class="eco-services">
+          <h3 class="eco-sub">¿Qué podemos trabajar desde acá?</h3>
+          <div class="cards cards6">
+            <article class="card">
+              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-handshake-angle"></i></div>
+              <h3><strong>Acompañamiento a fundadores</strong></h3>
+              <p>
+                Definimos juntos el foco del proyecto, el mapa de actores y los primeros pasos realistas
+                para insertarlo en cadenas de valor locales sin perder ambición.
+              </p>
+            </article>
+            <article class="card">
+              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
+              <h3><strong>Validación de pilotos y MVPs</strong></h3>
+              <p>
+                Diseñamos experimentos acotados para probar la idea en Uruguay antes de escalar:
+                qué medir, con quién testear y qué criterios usar para decidir si seguir, ajustar o frenar.
+              </p>
+            </article>
+            <article class="card">
+              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
+              <h3><strong>Posicionamiento para el mercado local</strong></h3>
+              <p>
+                Ajustamos oferta y narrativa para que tu propuesta sea entendible y relevante
+                para clientes, aliados y decisores en Uruguay, sin copiar modelos de otros mercados.
+              </p>
+            </article>
+            <article class="card">
+              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></div>
+              <h3><strong>Diseño de casos de inversión</strong></h3>
+              <p>
+                Armamos el caso de negocio y el relato para presentar tu proyecto ante inversores,
+                fondos o programas, conectando números, hipótesis y contexto local.
+              </p>
+            </article>
+            <article class="card">
+              <div class="iconchip" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></div>
+              <h3><strong>Capacitación en innovación</strong></h3>
+              <p>
+                Diseñamos formaciones para equipos y mypes sobre innovación aplicada, eco-innovación
+                y economía circular en Uruguay, con ejemplos y decisiones concretas.
+              </p>
+            </article>
+            <article class="card">
+              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></div>
+              <h3><strong>Estrategias de internacionalización</strong></h3>
+              <p>
+                Acompañamos a empresas locales que quieren expandirse: qué mantener, qué adaptar
+                y cómo contar su propuesta en otros mercados sin perder la base que funciona acá.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exposiciones clave -->
+    <section id="exposiciones" class="container sp-32" aria-labelledby="exp-title">
+      <div class="section-head">
+        <div class="eyebrow">Exposiciones clave</div>
+        <h2 id="exp-title">Diseño y afilado de exposiciones importantes</h2>
+        <p class="muted">
+          Trabajo con personas que tienen que exponer algo serio y no pueden permitirse
+          que el mensaje quede confuso: proyectos, propuestas, clases, pitches o decisiones
+          que dependen de cómo se cuente la historia.
+        </p>
+      </div>
+      <div class="about-card">
+        <p>
+          Entramos cuando ya hay contenido de fondo, pero falta orden, criterio y una forma
+          clara de presentarlo. El foco está en qué se dice, en qué orden y con qué argumentos,
+          no en “hablar lindo”.
+        </p>
+        <ul class="list">
+          <li>Presentar proyectos ante fondos, programas o jurados.</li>
+          <li>Defender propuestas estratégicas frente a dirección o comités.</li>
+          <li>Preparar clases, charlas o conferencias donde importa el contenido y el tiempo.</li>
+          <li>Explicar cambios relevantes a equipos o comunidades que necesitan entender el por qué.</li>
+        </ul>
+        <p>
+          En 2–3 encuentros trabajamos el objetivo, la estructura, el guion y el ensayo de la exposición,
+          hasta que el mensaje se vuelva claro y defendible para la audiencia que lo tiene que escuchar.
+        </p>
+      </div>
+    </section>
+
+    <section id="spo" class="container sp-32" aria-labelledby="spo-title">
+      <div class="section-head">
+        <div class="eyebrow">SPO</div>
+        <h2 id="spo-title">SPO | SerProfesionalOnline</h2>
+        <h3 id="spo-q" class="spo-q">¿Sos profesional?</h3>
+      </div>
+      <div class="spo-box">
+        <p>
+          SPO es la unidad centrada en profesionales independientes que quieren que su presencia digital
+          acompañe su nivel real. Trabajamos sobre claridad de oferta, mensaje y sistema de acción para
+          que se entienda qué hacés, cómo se trabaja con vos y qué pueden esperar.
+        </p>
+        <div>
+          <a class="btn primary" href="http://serprofesionalonline.wajntraub.ar/" target="_blank" rel="noopener">Conocé SPO</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container sp-32" aria-labelledby="about-title">
+      <div class="section-head">
+        <div class="eyebrow">AW</div><h2 id="about-title">Sobre AW</h2>
+      </div>
+      <div class="about-card">
+        <h3 class="about-sub">Sobre Ariana Wajntraub</h3>
+        <p>Mi trabajo es sentarme con vos, escuchar lo que nadie más está diciendo y traducir la complejidad en un plan de acción claro.</p>
+        <p>
+          Vengo de la comunicación, el marketing y la consultoría estratégica, y trabajo hace años
+          con proyectos, equipos y profesionales que necesitan criterio para decidir, no más ruido.
+          AWante no es una agencia ni una consultoría “de manual”: es un espacio para pensar mejor,
+          ordenar y hacer que las decisiones difíciles se vuelvan posibles.
+        </p>
+        <p class="linked-cta">
+          <a href="https://linkedin.com/in/arianawajntraub" target="_blank" rel="noopener">Conectá conmigo en LinkedIn →</a>
+        </p>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/arianawajntraub/" target="_blank" rel="noopener" aria-label="LinkedIn de Ariana Wajntraub">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="container sp-32" aria-labelledby="ct-title">
+      <div class="section-head">
+        <div class="eyebrow">Contacto</div>
+        <h2 id="ct-title">¿Conversamos?</h2>
+        <p class="muted">
+          Podés contarme brevemente qué está pasando y qué te gustaría que cambie.
+          No hace falta tener el problema perfectamente definido para empezar.
+        </p>
+      </div>
+      <form action="https://formspree.io/f/movnggor" method="POST">
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required>
+        </div>
+        <div class="field">
+          <label for="empresa">Empresa/Proyecto</label>
+          <input id="empresa" name="Empresa" type="text" placeholder="Nombre de tu empresa o proyecto">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="Email" type="email" placeholder="tu@correo.com" required>
+        </div>
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="Mensaje" placeholder="¿Qué está pasando hoy? ¿Qué te gustaría que cambie?"></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="Nuevo contacto desde AWante">
+        <input type="text" name="_gotcha" style="display:none">
+        <button class="btn primary full" type="submit">
+          <i class="fa-regular fa-envelope"></i> Enviar mensaje
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="foot-wrap container">
+      <div class="foot-brand" aria-label="AWante — Consultoría Estratégica">
+        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 32" role="img" aria-label="AWante" style="height:28px;width:auto">
+          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
+          </g>
+          <g><text x="58" y="24" class="logo-text">ante</text></g>
+        </svg>
+      </div>
+      <div class="foot-slogan">Desde tu idea hasta la acción.</div>
+      <div class="foot-socials" aria-label="Redes y contacto">
+        <a href="https://linkedin.com/in/arianawajntraub" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://wa.me/541154687647?text=Hola%20AWante%2C%20necesito%20ayuda%20para%20mi%20proyecto" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="mailto:arianawajntraub@gmail.com" aria-label="Email">
+          <i class="fa-regular fa-envelope"></i>
+        </a>
+      </div>
+      <div class="copyright">© 2026 AWante. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    const header = document.querySelector('header.site-header');
+    const btn    = document.querySelector('.burger');
+    const menu   = document.getElementById('mobileMenu');
+
+    function syncScroll(){
+      if(window.scrollY > 16){ header.classList.add('scrolled'); }
+      else{ header.classList.remove('scrolled'); }
+    }
+    syncScroll();
+    window.addEventListener('scroll', syncScroll, {passive:true});
+
+    window.toggleMenu = function(force){
+      if(!menu || !btn) return;
+      const show = (typeof force === 'boolean') ? force : !menu.classList.contains('open');
+      menu.classList.toggle('open', show);
+      btn.setAttribute('aria-expanded', show ? 'true' : 'false');
+    };
+
+    document.addEventListener('click', (e)=>{
+      if(menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)){
+        menu.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+      }
+    }, {passive:true});
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && menu.classList.contains('open')){
+        menu.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+      }
+    });
+  })();
+  </script>
+  <script>
+  (function(){
+    const header = document.querySelector('header.site-header');
+    function onScroll(){
+      if(window.scrollY > 16){ header.classList.add('scrolled'); }
+      else{ header.classList.remove('scrolled'); }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+  </script>
+</body>
+</html>
