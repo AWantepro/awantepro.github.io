@@ -3,334 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AWante | Consultoría Estratégica — Desde tu idea hasta la acción</title>
-  <meta name="description" content="AWante | Consultoría Estratégica. Acompañamos proyectos, modelo de negocio y equipos para que decisiones clave se tomen con criterio y se ejecuten. Uruguay — Maldonado." />
+  <title>AWante | Consultoría estratégica y ejecución comercial B2B</title>
+  <meta name="description" content="AWante | Dirección estratégica, estructuración comercial B2B, casos de inversión y puesta en marcha de proyectos en Maldonado (Punta del Este) y Buenos Aires." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-
-  <style>
-    /* que la hamburguesa se vea siempre en mobile */
-    .burger i{ color: var(--terracota); font-size: 22px; line-height: 1; }
-
-    /* que el menú desplegado quede por encima de todo */
-    #mobileMenu{ z-index: 9999; }
-
-    /* Nav móvil (visibilidad y color del icono) */
-    #mobileMenu{ display:none; z-index:9999; }
-    #mobileMenu.open{ display:block; }
-    .burger i{ color: var(--terracota); }
-
-    /* Opcional: tarjetas blancas dentro de Ecosistema para más contraste */
-    #ecosistema .card{ background:var(--blanco); }
-
-    /* MENÚ MÓVIL: aparece sólo con la clase .open */
-    @media (max-width:880px){
-      .burger{ display:block; }
-      nav.primary{ display:none; }
-
-      #mobileMenu{
-        display:none;
-        position:fixed;
-        right:16px;
-        top:calc(var(--header-h) + 8px);
-        background:var(--blanco);
-        border:1px solid rgba(0,0,0,.06);
-        box-shadow:var(--shadow);
-        border-radius:12px;
-        overflow:hidden;
-        z-index:9999;
-      }
-      #mobileMenu.open{ display:block; }
-
-      .burger i{ color: var(--terracota); }
-    }
-
-    :root{
-      --hueso:#F7F3E9;--gris-osc:#333333;--gris-claro:#f8f5f2;--blanco:#FFFFFF;
-      --terracota:#d96c47;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.06);
-      --shadow-soft:0 6px 18px rgba(0,0,0,.05);--container:1200px;
-      --header-h:72px;--measure:820px;
-    }
-    html{scroll-behavior:smooth}
-    *,*::before,*::after{box-sizing:border-box}
-    body{
-      margin:0;background:var(--hueso);color:var(--gris-osc);
-      font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.6
-    }
-    a{color:var(--terracota);text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    .container{max-width:var(--container);margin-inline:auto;padding:0 20px}
-    header.site-header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(247,243,233,.92);
-      backdrop-filter:saturate(180%) blur(10px);
-      border-bottom:1px solid rgba(0,0,0,.06)
-    }
-    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand-mark{height:34px;width:auto;display:block}
-    nav.primary{display:flex;align-items:center;gap:20px;font-weight:700}
-    nav.primary a{color:var(--gris-osc)}
-    nav.primary .pipe{opacity:.45}
-    .burger{display:none;background:none;border:none;padding:10px;margin:-10px;cursor:pointer;font-size:1.2rem}
-    #mobileMenu{display:none}
-    @media (max-width:880px){
-      nav.primary{display:none}
-      .burger{display:block}
-      #mobileMenu{
-        display:none;position:absolute;right:16px;top:calc(var(--header-h) + 8px);
-        background:var(--blanco);border:1px solid rgba(0,0,0,.06);
-        box-shadow:var(--shadow);border-radius:12px;overflow:hidden
-      }
-      #mobileMenu a{
-        display:block;padding:12px 16px;color:var(--gris-osc);font-weight:700
-      }
-      #mobileMenu .pipe{display:none}
-    }
-    section.hero{padding:56px 0 48px}
-    h1{
-      font-family:'Manrope',sans-serif;font-weight:800;line-height:1.1;
-      margin:14px 0 8px;font-size:clamp(2rem,4.2vw,3rem)
-    }
-    .subtitle{
-      font-family:'Manrope',sans-serif;font-weight:700;opacity:.9;
-      font-size:clamp(1.25rem,2.2vw,2rem);letter-spacing:.005em
-    }
-    .signature{font-style:italic;opacity:.8;margin-top:6px}
-    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;border-radius:999px;
-      padding:12px 16px;font-family:'Manrope',sans-serif;font-weight:500;
-      border:1.5px solid transparent;transition:.2s ease;cursor:pointer
-    }
-    .btn.primary{background:var(--terracota);color:var(--blanco)}
-    .btn.primary:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-    .btn.ghost{background:transparent;border-color:var(--terracota);color:var(--terracota)}
-    .hero .measure{max-width:var(--measure)}
-    .hero .measure > *{max-width:var(--measure)}
-    @media(min-width:900px){.hero .lead{letter-spacing:.01em}}
-    section{scroll-margin-top:calc(var(--header-h) + 16px)}
-    .section-head{margin-bottom:18px}
-    .eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;opacity:.7}
-    h2{
-      font-family:'Manrope',sans-serif;font-weight:800;line-height:1.2;
-      margin:6px 0 10px;font-size:clamp(1.6rem,3.2vw,2.2rem)
-    }
-    p{margin:0 0 10px}
-    section#about .about-card{
-      background:var(--blanco);border:1px solid rgba(0,0,0,.06);
-      border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-soft)
-    }
-    #about .about-sub{
-      font-family:'Manrope',sans-serif;font-weight:800;
-      margin:4px 0 8px;font-size:1.35rem
-    }
-    #about .linked-cta{margin-top:12px}
-    .socials{display:flex;gap:10px;margin-top:10px}
-    .socials a{
-      display:inline-flex;align-items:center;justify-content:center;
-      width:40px;height:40px;border-radius:999px;background:var(--gris-claro);color:var(--gris-osc)
-    }
-    section#servicios, section#areas{padding:32px 0}
-    .cards{display:grid;grid-template-columns:1fr;gap:14px}
-    @media(min-width:720px){.cards{grid-template-columns:repeat(2,1fr)}}
-    .card{
-      background:var(--gris-claro);border:1px solid rgba(0,0,0,.06);
-      border-radius:16px;padding:18px;box-shadow:var(--shadow-soft)
-    }
-    .card h3{
-      font-family:'Manrope',sans-serif;font-weight:700;margin:8px 0
-    }
-    .iconchip{
-      width:56px;height:48px;border-radius:999px;background:var(--blanco);
-      display:inline-flex;align-items:center;justify-content:center;
-      box-shadow:var(--shadow-soft);position:relative
-    }
-    .iconchip::after{
-      content:"";position:absolute;inset:-3px;border-radius:999px;
-      border:1px solid rgba(0,0,0,.06)
-    }
-    .iconchip i{font-size:26px;color:var(--gris-osc)}
-    .card p{margin-top:6px}
-    .btn.tiny{padding:8px 12px;border-width:1.5px;font-size:.9rem}
-    form .btn.primary{font-size:1.05rem;padding:14px 20px}
-    .btn.full{width:100%;justify-content:center}
-    section#ecosistema{background:var(--gris-claro);padding:36px 0}
-    #ecosistema .card{ background: var(--blanco); }
-    .eco-sub{font-family:'Manrope',sans-serif;font-weight:800;margin:6px 0 8px}
-    .list{display:grid;gap:10px;margin-top:10px;padding-left:20px}
-    .list li{margin-bottom: 10px;}
-    section#spo .spo-box{
-      background:var(--blanco);border:1px solid rgba(0,0,0,.06);
-      border-radius:16px;padding:20px;box-shadow:var(--shadow-soft)
-    }
-    /* Caja para Exposiciones clave con el mismo estilo que SPO */
-#exposiciones .spo-box{
-  background:var(--blanco);
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:16px;
-  padding:20px;
-  box-shadow:var(--shadow-soft);
-}
-    #spo .spo-q{
-      font-family:'Manrope',sans-serif;font-weight:800;
-      margin:6px 0 12px;font-size:clamp(1.2rem,2.2vw,1.6rem)
-    }
-    form{display:grid;gap:12px}
-    .field{display:flex;flex-direction:column;gap:6px}
-    .field input,.field textarea{
-      padding:12px 14px;border-radius:12px;
-      border:1px solid rgba(0,0,0,.12);background:var(--blanco);font:inherit
-    }
-    .field textarea{min-height:130px;resize:vertical}
-    footer{
-      background:var(--gris-osc);color:var(--blanco);margin-top:40px
-    }
-    footer .foot-wrap{
-      display:grid;gap:14px;justify-items:center;padding:28px 20px;
-      text-align:center;max-width:var(--container);margin-inline:auto
-    }
-    .foot-brand{
-      font-family:'Manrope',sans-serif;font-weight:700;letter-spacing:.02em
-    }
-    .foot-slogan{
-      font-family:'Manrope',sans-serif;font-weight:500;opacity:.9
-    }
-    .foot-socials{display:flex;gap:12px}
-    .foot-socials a{
-      width:42px;height:42px;border-radius:999px;background:#444;
-      color:var(--blanco);display:inline-flex;align-items:center;justify-content:center
-    }
-    .copyright{opacity:.8;font-size:.9rem}
-    .cards6{display:grid;grid-template-columns:1fr;gap:14px}
-    @media(min-width:720px){.cards6{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1024px){.cards6{grid-template-columns:repeat(3,1fr)}}
-    .logo-text{
-      font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.02em;
-      fill:var(--gris-osc);text-rendering:geometricPrecision;dominant-baseline:alphabetic
-    }
-    svg{shape-rendering:geometricPrecision}
-    footer .logo-text{fill:#fff}
-    .sp-32{padding:32px 0}
-    .lead{font-size:1.1rem;letter-spacing:.01em}
-    .muted{opacity:.85}
-
-    svg{shape-rendering:geometricPrecision; overflow:visible}
-
-    @media (max-width: 480px){
-      .container{padding-left:22px;padding-right:22px}
-      .section-head,
-      .cards,
-      .cards6,
-      .eco-grid{padding-left:2px;padding-right:2px}
-      .card,
-      .about-card,
-      .spo-box,
-      .list li{padding:18px;border-radius:16px}
-      .hero .measure{max-width:100%}
-    }
-
-    @media (max-width:880px){
-      header.site-header{
-        transition:transform .28s ease, opacity .28s ease, height .28s ease;
-        transform: translateY(-100%);
-        opacity: 0;
-        height: 0;
-        overflow: hidden;
-      }
-      header.site-header.is-visible{
-        transform: translateY(0);
-        opacity: 1;
-        height: auto;
-      }
-      #mobileMenu{
-        position: fixed;
-        right:16px;
-        top: calc(var(--header-h) + 8px);
-        background: var(--blanco);
-        border:1px solid rgba(0,0,0,.06);
-        box-shadow: var(--shadow);
-        border-radius:12px;
-        overflow:hidden;
-        z-index:9999;
-      }
-      .burger i{ color: var(--terracota); }
-    }
-
-    @media (max-width:880px){
-      .burger{display:block}
-      .burger i{ color: var(--terracota); font-size:22px; line-height:1; }
-
-      #mobileMenu{
-        display:none;
-        position:fixed;
-        right:16px;
-        top:calc(var(--header-h) + 8px);
-        background:var(--blanco);
-        border:1px solid rgba(0,0,0,.06);
-        box-shadow:var(--shadow);
-        border-radius:12px;
-        overflow:hidden;
-        z-index:9999;
-      }
-      #mobileMenu a{display:block;padding:12px 16px;color:var(--gris-osc);font-weight:700}
-      #mobileMenu.open{ display:block; }
-    }
-
-    @media (max-width:880px){
-      nav.primary{display:none}
-    }
-
-    @media (max-width:880px){
-      header.site-header{
-        transform:none !important;
-        opacity:1 !important;
-        height:auto !important;
-        overflow:visible !important;
-      }
-      .burger{ display:block !important; }
-      nav.primary{ display:none !important; }
-      .burger i{ color: var(--terracota) !important; font-size:22px; line-height:1; }
-      #mobileMenu{
-        display:none !important;
-        position:fixed; right:16px; top:calc(var(--header-h) + 8px);
-        background:var(--blanco);
-        border:1px solid rgba(0,0,0,.06);
-        box-shadow:var(--shadow); border-radius:12px; overflow:hidden;
-        z-index:9999;
-      }
-      #mobileMenu.open{ display:block !important; }
-      #mobileMenu a{ display:block; padding:12px 16px; color:var(--gris-osc); font-weight:700; }
-    }
-
-    @media (max-width:880px){
-      .burger{ display:none; }
-      nav.primary{ display:none; }
-      header.site-header.scrolled .burger{
-        display:block;
-      }
-      #mobileMenu{
-        display:none; position:fixed; right:16px; top:calc(var(--header-h) + 8px);
-        background:var(--blanco); border:1px solid rgba(0,0,0,.06);
-        box-shadow:var(--shadow); border-radius:12px; overflow:hidden; z-index:9999;
-      }
-      #mobileMenu.open{ display:block; }
-      #mobileMenu a{ display:block; padding:12px 16px; color:var(--gris-osc); font-weight:700; }
-      .burger i{ color: var(--terracota); font-size:22px; line-height:1; }
-    }
-
-    @media (max-width:880px){
-      .burger{ display:none; }
-      header.site-header.scrolled .burger{ display:block; }
-      #mobileMenu{ display:none; position:fixed; right:16px; top:calc(var(--header-h) + 8px); z-index:9999; }
-      #mobileMenu.open{ display:block; }
-      .burger i{ color: var(--terracota); }
-    }
-  </style>
 
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
@@ -339,36 +18,260 @@
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
-  <meta property="og:title" content="AWante | Consultoría Estratégica" />
-  <meta property="og:description" content="Desde tu idea hasta la acción." />
+  <meta property="og:title" content="AWante | Dirección estratégica y ejecución comercial B2B" />
+  <meta property="og:description" content="De la decisión estratégica a la operación comercial funcionando. Maldonado y Buenos Aires." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og-image.png" />
   <meta property="og:url" content="https://awante.wajntraub.ar/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AWante | Consultoría Estratégica" />
-  <meta name="twitter:description" content="Desde tu idea hasta la acción." />
-  <meta name="twitter:image" content="assets/og-image.png" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AWante | Consultoría Estratégica",
-    "url": "https://awante.wajntraub.ar/",
-    "logo": "assets/brand/AWante_lockup_horizontal_dark.svg",
-    "sameAs": [
-      "https://www.linkedin.com/in/arianawajntraub/",
-      "https://wa.me/541154687647"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "AWante | Consultoría estratégica y ejecución B2B",
+        "url": "https://awante.wajntraub.ar/",
+        "logo": "https://awante.wajntraub.ar/assets/brand/AWante_lockup_horizontal_dark.svg",
+        "founder": {
+          "@type": "Person",
+          "name": "Ariana Wajntraub",
+          "url": "https://wajntraub.ar/"
+        },
+        "areaServed": ["Maldonado", "Punta del Este", "Montevideo", "Buenos Aires"],
+        "sameAs": [
+          "https://www.linkedin.com/in/arianawajntraub/",
+          "https://wa.me/5491154687647",
+          "https://wajntraub.ar/"
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Dirección comercial B2B, puesta en marcha de proyectos y casos de inversión",
+        "provider": {
+          "@type": "Organization",
+          "name": "AWante"
+        },
+        "serviceType": "Consultoría estratégica y comercial B2B"
+      }
     ]
   }
   </script>
+
+  <style>
+    :root{
+      --obsidian: #1A1A1A;
+      --obsidian-soft: #242220;
+      --stone: #F0EDE1;
+      --stone-card: #FAF8F2;
+      --sand-gold: #EADDC2;
+      --bronze: #6E533A;
+      --bronze-hover: #58412C;
+      --ochre: #876F55;
+      --text-dark: #1A1A1A;
+      --text-muted: #544E47;
+      --border-light: rgba(26, 26, 26, 0.12);
+      --border-dark: rgba(234, 221, 194, 0.18);
+      --radius: 16px;
+      --container: 1140px;
+      --header-h: 72px;
+    }
+    html{scroll-behavior:smooth}
+    *,*::before,*::after{box-sizing:border-box}
+    body{
+      margin:0;
+      background: var(--stone);
+      color: var(--text-dark);
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height:1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:var(--container);margin-inline:auto;padding:0 20px}
+    section{scroll-margin-top:calc(var(--header-h) + 16px)}
+
+    header.site-header{
+      position:sticky;top:0;z-index:100;
+      background: rgba(26, 26, 26, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border-dark);
+      color: var(--stone);
+    }
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);gap:16px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand-mark{height:34px;width:auto;display:block}
+    .logo-text{
+      font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.02em;
+      fill: var(--stone);text-rendering:geometricPrecision;dominant-baseline:alphabetic
+    }
+    nav.primary{display:flex;align-items:center;gap:18px;font-weight:700;font-size:13.5px}
+    nav.primary a{color:rgba(240,237,225,0.8);transition:color .2s}
+    nav.primary a:hover{color:var(--sand-gold)}
+    nav.primary .pipe{color:rgba(234,221,194,0.25)}
+
+    .burger{
+      display:none;background:var(--obsidian-soft);border:1px solid var(--border-dark);
+      border-radius:10px;padding:10px 12px;cursor:pointer;color:var(--sand-gold);font-size:1.1rem
+    }
+    #mobileMenu{
+      display:none;position:fixed;right:16px;top:calc(var(--header-h) + 8px);
+      background:var(--obsidian);border:1px solid var(--border-dark);
+      box-shadow:0 16px 36px rgba(0,0,0,0.45);border-radius:14px;overflow:hidden;z-index:9999;
+      min-width: 230px;
+    }
+    #mobileMenu.open{display:block}
+    #mobileMenu a{
+      display:block;padding:13px 18px;color:var(--stone);font-weight:700;font-size:14px;
+      border-bottom:1px solid rgba(234,221,194,0.08);
+    }
+    #mobileMenu a:last-child{border-bottom:none}
+    #mobileMenu a:hover{background:var(--obsidian-soft);color:var(--sand-gold)}
+
+    @media (max-width:900px){
+      nav.primary{display:none}
+      .burger{display:inline-flex;align-items:center;justify-content:center}
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:10px;
+      padding:12px 18px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;
+      border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap
+    }
+    .btn.primary{background:var(--bronze);color:var(--stone);border-color:rgba(234,221,194,0.25)}
+    .btn.primary:hover{background:var(--bronze-hover);transform:translateY(-1px)}
+    .btn.gold{background:var(--sand-gold);color:var(--obsidian);border-color:var(--sand-gold)}
+    .btn.gold:hover{background:#dfd0b0;transform:translateY(-1px)}
+    .btn.ghost-dark{background:rgba(240,237,225,0.06);border-color:var(--border-dark);color:var(--stone)}
+    .btn.ghost-dark:hover{border-color:var(--sand-gold);color:var(--sand-gold)}
+    .btn.ghost{background:transparent;border-color:var(--bronze);color:var(--bronze)}
+    .btn.ghost:hover{background:rgba(110,83,58,0.08)}
+    .btn.full{width:100%}
+
+    .hero-band{
+      background: var(--obsidian);
+      background-image: radial-gradient(circle at 80% 0%, rgba(110, 83, 58, 0.28) 0%, rgba(26, 26, 26, 0) 65%);
+      color: var(--stone);
+      padding: 52px 0 48px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .eyebrow-pill{
+      display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:0.14em;
+      text-transform:uppercase;color:var(--sand-gold);background:rgba(110,83,58,0.32);
+      border:1px solid var(--border-dark);padding:6px 12px;border-radius:999px;margin-bottom:16px
+    }
+    h1{
+      font-weight:800;line-height:1.08;margin:0 0 14px;
+      font-size:clamp(1.9rem,4vw,3.1rem);letter-spacing:-0.03em;color:var(--stone);max-width:25ch
+    }
+    .hero-lead{
+      font-size:clamp(1rem,1.8vw,1.15rem);color:rgba(240,237,225,0.82);max-width:66ch;margin:0 0 10px
+    }
+    .signature{font-size:0.92rem;font-weight:600;color:var(--sand-gold);margin-bottom:22px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+
+    .triage-title{
+      font-size:11.5px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;
+      color:var(--sand-gold);margin-bottom:12px
+    }
+    .triage-grid{
+      display:grid;grid-template-columns:repeat(12,1fr);gap:14px
+    }
+    .triage-box{
+      grid-column:span 12;background:var(--obsidian-soft);border:1px solid var(--border-dark);
+      border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;
+      gap:10px;transition:all .2s ease
+    }
+    .triage-box:hover{border-color:var(--sand-gold);transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,0.4)}
+    @media(min-width:820px){.triage-box{grid-column:span 4}}
+    .triage-box .t-tag{font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--sand-gold)}
+    .triage-box h2{font-size:17px;font-weight:800;margin:4px 0 6px;color:var(--stone);letter-spacing:-0.01em}
+    .triage-box p{font-size:13.5px;color:rgba(240,237,225,0.74);margin:0}
+    .triage-box .t-action{font-size:13px;font-weight:800;color:var(--sand-gold);margin-top:4px}
+
+    .sp-40{padding:44px 0}
+    .section-head{margin-bottom:24px}
+    .eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:.75rem;font-weight:800;color:var(--bronze)}
+    h2.sec-h2{
+      font-weight:800;line-height:1.15;margin:6px 0 10px;
+      font-size:clamp(1.55rem,3vw,2.2rem);letter-spacing:-0.02em
+    }
+    .muted{color:var(--text-muted);max-width:70ch}
+
+    .cards{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr)}}
+    .card{
+      background:var(--stone-card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:8px;
+      transition:transform .2s ease, box-shadow .2s ease
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(26,26,26,0.06)}
+    .card h3{font-weight:800;font-size:18px;margin:4px 0}
+    .card p{margin:0;color:var(--text-muted);font-size:14.5px}
+    .iconchip{
+      width:46px;height:46px;border-radius:12px;background:var(--obsidian);
+      display:inline-flex;align-items:center;justify-content:center;color:var(--sand-gold);font-size:20px
+    }
+
+    section#ecosistema{
+      background: #E6E1D3;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 48px 0;
+    }
+    .cards6{display:grid;grid-template-columns:1fr;gap:16px}
+    @media(min-width:720px){.cards6{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){.cards6{grid-template-columns:repeat(3,1fr)}}
+
+    .feature-box{
+      background:var(--stone-card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:28px;
+    }
+    .dark-feature-box{
+      background:var(--obsidian);color:var(--stone);border:1px solid var(--border-dark);
+      border-radius:var(--radius);padding:28px;
+    }
+    .dark-feature-box p{color:rgba(240,237,225,0.82)}
+    .list{display:grid;gap:10px;margin:14px 0;padding-left:20px;color:var(--text-muted)}
+    .list li{margin-bottom:4px}
+
+    form{display:grid;gap:14px;max-width:680px}
+    .field{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px}
+    .field input,.field textarea{
+      padding:13px 15px;border-radius:10px;
+      border:1px solid var(--border-light);background:var(--stone-card);font:inherit;font-weight:500
+    }
+    .field input:focus,.field textarea:focus{outline:none;border-color:var(--bronze)}
+    .field textarea{min-height:120px;resize:vertical}
+
+    footer{
+      background:var(--obsidian);color:var(--stone);margin-top:40px;border-top:1px solid var(--border-dark)
+    }
+    footer .foot-wrap{
+      display:grid;gap:14px;justify-items:center;padding:36px 20px;
+      text-align:center;max-width:var(--container);margin-inline:auto
+    }
+    .foot-slogan{font-weight:600;color:var(--sand-gold);font-size:14px}
+    .foot-socials{display:flex;gap:12px;flex-wrap:wrap}
+    .foot-socials a{
+      width:42px;height:42px;border-radius:10px;background:var(--obsidian-soft);
+      color:var(--sand-gold);display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid var(--border-dark);transition:all .2s
+    }
+    .foot-socials a:hover{background:var(--bronze);color:var(--stone)}
+    .copyright{color:rgba(240,237,225,0.6);font-size:.85rem}
+
+    @media (max-width: 640px){
+      .cta-row .btn{width:100%}
+    }
+  </style>
 </head>
 <body>
   <header class="site-header" role="banner">
     <div class="container nav-wrap">
-      <a href="#top" class="brand site-logo" aria-label="AWante — Consultoría Estratégica">
+      <a href="#top" class="brand site-logo" aria-label="AWante — Consultoría estratégica">
         <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 32" role="img" aria-label="AWante">
-          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#333333" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#EADDC2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
           </g>
           <g>
@@ -377,15 +280,15 @@
         </svg>
       </a>
       <nav class="primary" aria-label="Navegación principal">
-        <a href="#areas">Áreas estratégicas</a>
+        <a href="#areas">Intervenciones B2B</a>
         <span class="pipe">|</span>
-        <a href="#ecosistema">Ecosistema Uruguay</a>
+        <a href="#ecosistema">Foco Uruguay y región</a>
         <span class="pipe">|</span>
-        <a href="#exposiciones">Exposiciones clave</a>
+        <a href="#exposiciones">Directorios e inversión</a>
         <span class="pipe">|</span>
-        <a href="#about">Sobre AW</a>
+        <a href="#about">Dirección</a>
         <span class="pipe">|</span>
-        <a href="#contacto">Contacto</a>
+        <a class="btn gold" style="padding:8px 14px;font-size:13px" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20desde%20AWante%20para%20evaluar%20un%20proyecto%20o%20empresa." target="_blank" rel="noopener">WhatsApp directo</a>
       </nav>
       <button class="burger"
         type="button"
@@ -397,226 +300,231 @@
       </button>
 
       <div id="mobileMenu" role="menu" aria-label="Menú móvil">
-        <a href="#areas" onclick="toggleMenu(false)">Áreas estratégicas</a>
-        <a href="#ecosistema" onclick="toggleMenu(false)">Ecosistema Uruguay</a>
-        <a href="#exposiciones" onclick="toggleMenu(false)">Exposiciones clave</a>
-        <a href="#about" onclick="toggleMenu(false)">Sobre AW</a>
-        <a href="#contacto" onclick="toggleMenu(false)">Contacto</a>
+        <a href="#areas" onclick="toggleMenu(false)">Intervenciones B2B</a>
+        <a href="#ecosistema" onclick="toggleMenu(false)">Foco Uruguay y región</a>
+        <a href="#exposiciones" onclick="toggleMenu(false)">Directorios e inversión</a>
+        <a href="#about" onclick="toggleMenu(false)">Sobre Ariana Wajntraub</a>
+        <a href="#contacto" onclick="toggleMenu(false)">Contacto directo</a>
       </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero container" aria-labelledby="hero-title">
-      <div class="measure">
-        <h1 id="hero-title" style="display:flex;align-items:baseline;gap:.35rem;flex-wrap:nowrap">
-          <span aria-label="AWante" style="display:inline-block;line-height:0">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" style="height:48px;width:auto;vertical-align:baseline">
-              <g transform="translate(0,2) scale(0.88)" fill="none" stroke="#333333">
-                <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-              </g>
-              <g>
-                <text x="88" y="46" class="logo-text hero">ante</text>
-              </g>
-            </svg>
-          </span>
-          <span class="subtitle">| Consultoría Estratégica</span>
-        </h1>
-        <p class="lead">Desde tu idea hasta la acción.</p>
-        <p class="signature">by Ariana Wajntraub</p>
+    <section class="hero-band" aria-labelledby="hero-title">
+      <div class="container">
+        <span class="eyebrow-pill">Consultoría estratégica y ejecución B2B · Maldonado y Buenos Aires</span>
+        <h1 id="hero-title">De la decisión estratégica a la operación comercial funcionando.</h1>
+        <p class="hero-lead">
+          Intervenimos en empresas, desarrollos y nuevas unidades de negocio para estructurar la oferta, construir los activos de venta y ejecutar con criterio gerencial.
+        </p>
+        <p class="signature">Dirección: <a href="https://wajntraub.ar/" style="text-decoration:underline;color:var(--sand-gold)">Ariana Wajntraub</a></p>
         <div class="cta-row">
-          <a class="btn primary" href="#contacto"><i class="fa-regular fa-message"></i> Hablemos</a>
-          <a class="btn ghost" href="#areas"><i class="fa-solid fa-toolbox"></i> Ver caja de herramientas</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="areas" class="container sp-32" aria-labelledby="tools-title">
-      <div class="section-head">
-        <div class="eyebrow">Áreas estratégicas</div>
-        <h2 id="tools-title">Nuestra caja de herramientas</h2>
-        <p class="muted">
-          Nuestra metodología es flexible y se adapta a tu necesidad. Estas son nuestras áreas de acción estratégica, donde aplicamos nuestra experiencia para desatar nudos y construir caminos.
-        </p>
-      </div>
-      <div class="cards">
-        <article class="card" aria-labelledby="a1">
-          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-rocket"></i></div>
-          <h3 id="a1">Puesta en marcha de proyectos</h3>
-          <p>
-            Para fundadores y equipos con una visión clara pero un camino difuso. Acompañamos el proceso de darle forma a una nueva idea, diseñando el proyecto piloto, validando las hipótesis clave y construyendo la hoja de ruta para transformar la intención en un primer resultado tangible.
-          </p>
-        </article>
-        <article class="card" aria-labelledby="a2">
-          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></div>
-          <h3 id="a2">Posicionamiento y modelo de negocio</h3>
-          <p>
-            Para empresas y profesionales con un producto o servicio excelente que no logra conectar con su mercado. Trabajamos en el núcleo de tu negocio para articular tu propuesta de valor, diseñar un modelo de negocio coherente y construir la narrativa que hace que tus clientes ideales entiendan por qué sos la única opción.
-          </p>
-        </article>
-        <article class="card" aria-labelledby="a3">
-          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-users-gear"></i></div>
-          <h3 id="a3">Desarrollo de capacidades internas</h3>
-          <p>
-            Para equipos que buscan evolucionar y mejorar su forma de trabajar. Facilitamos la conversación para co-crear el sistema de decisión y los procesos que tu equipo necesita, alineando la cultura con la estrategia para construir autonomía.
-          </p>
-        </article>
-        <article class="card" aria-labelledby="a4">
-          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
-          <h3 id="a4">Ecosistema Uruguay</h3>
-          <p>Potenciamos proyectos con diseño situado en el territorio.</p>
-          <p><a class="btn tiny ghost" href="#ecosistema">→ Ver Foco Local</a></p>
-        </article>
-      </div>
-    </section>
-
-    <!-- FOCO LOCAL / Ecosistema Uruguay -->
-    <section id="ecosistema" aria-labelledby="eco-title">
-      <div class="container sp-32">
-        <div class="section-head">
-          <div class="eyebrow">FOCO LOCAL</div>
-          <h2 id="eco-title">Nuestro foco y territorio: Ecosistema Uruguay</h2>
-          <p class="muted">
-            Entendemos que operar en Uruguay tiene sus propias reglas. Como consultoría con base en Maldonado,
-            no solo traemos una perspectiva global, sino que tenemos un conocimiento profundo del territorio.
-            Esta área está diseñada para potenciar a las empresas y startups uruguayas, navegando juntas la
-            realidad del mercado local para construir proyectos sólidos y con identidad propia.
-          </p>
+          <a class="btn gold" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20por%20AWante%20para%20coordinar%20una%20conversaci%C3%B3n%20sobre%20mi%20empresa%20o%20proyecto." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Coordinar conversación por WhatsApp</a>
+          <a class="btn ghost-dark" href="#areas"><i class="fa-solid fa-layer-group"></i> Ver alcances facturables</a>
         </div>
 
-        <div class="eco-services">
-          <h3 class="eco-sub">¿Cómo lo hacemos?</h3>
-          <div class="cards cards6">
-            <article class="card">
-              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-handshake-angle"></i></div>
-              <h3><strong>Acompañamiento a fundadores</strong></h3>
-              <p>Te acompañamos en las etapas iniciales para dar forma y estructura a tu visión, insertando y fortaleciendo tu proyecto en las cadenas de valor locales.</p>
-            </article>
-            <article class="card">
-              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
-              <h3><strong>Validación de proyectos piloto y MVPs</strong></h3>
-              <p>Diseñamos y ejecutamos experimentos de bajo costo con un análisis profundo del territorio y el mercado uruguayo para asegurar la viabilidad de tu idea antes de invertir grandes recursos.</p>
-            </article>
-            <article class="card">
-              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
-              <h3><strong>Posicionamiento para el mercado uruguayo</strong></h3>
-              <p>Creamos un sistema de comunicación y una narrativa de marca que resuene con la cultura local, alineando tu valor con las expectativas del mercado.</p>
-            </article>
-            <article class="card">
-              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></div>
-              <h3><strong>Diseño de Casos de Inversión</strong></h3>
-              <p>Preparamos tu proyecto para que sea invertible. Te ayudamos a construir y comunicar un caso de negocio sólido para atraer el capital que necesitas para crecer.</p>
-            </article>
-            <article class="card">
-              <div class="iconchip" aria-hidden="true"><i class="fa-regular fa-lightbulb"></i></div>
-              <h3><strong>Capacitación en innovación</strong></h3>
-              <p>Diseñamos e implementamos capacitaciones enfocadas en las necesidades de las mypes, incorporando prácticas de eco-innovación y economía circular.</p>
-            </article>
-            <article class="card">
-              <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></div>
-              <h3><strong>Diseño de estrategias de internacionalización</strong></h3>
-              <p>Creamos la hoja de ruta para franquicias y empresas locales con potencial de expansión glocal.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="triage-title">Elegí la línea de intervención para tu empresa o proyecto</div>
+        <div class="triage-grid">
+          <a class="triage-box" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20busco%20ordenar%20el%20sistema%20comercial%20y%20los%20activos%20B2B%20de%20nuestra%20empresa." target="_blank" rel="noopener">
+            <div>
+              <span class="t-tag">01 · Empresas en marcha</span>
+              <h2>Dirección comercial y activos B2B</h2>
+              <p>Reordenamiento de propuesta de valor, dossiers comerciales, reactivación de cartera B2B y dirección mensual junto a gerencia.</p>
+            </div>
+            <span class="t-action">Solicitar diagnóstico comercial →</span>
+          </a>
 
-    <!-- Exposiciones clave -->
-    <section id="exposiciones" class="container sp-32" aria-labelledby="exp-title">
-      <div class="section-head">
-        <div class="eyebrow">Exposiciones clave</div>
-        <h2 id="exp-title">Exposiciones y presentaciones que importan</h2>
-        <p class="muted">
-          Trabajo con proyectos, equipos y profesionales cuando tienen que explicar algo importante
-          ante otras personas: presentar una propuesta, un proyecto, una clase o una decisión que
-          necesita sostenerse con argumentos claros.
-        </p>
-      </div>
-        <div class="spo-box">
-    <p>
-      El foco está en el contenido: qué se dice, en qué orden y con qué criterio.
-      No en técnicas de oratoria ni en motivación, sino en construir un relato sólido
-      para la audiencia a la que le tenés que hablar.
-    </p>
-    <ul class="list">
-      <li>Presentar proyectos ante equipos internos, socios, fondos o programas.</li>
-      <li>Defender propuestas estratégicas frente a dirección o comités.</li>
-      <li>Preparar clases, charlas o jornadas donde el contenido y el tiempo son sensibles.</li>
-      <li>Explicar cambios relevantes a equipos o comunidades que necesitan entender el por qué.</li>
-    </ul>
-    <p class="muted">
-      Cada caso se trabaja a medida, partiendo del material que ya tenés y del contexto concreto en el que vas a exponer.
-    </p>
-  </div>
-    </section>
+          <a class="triage-box" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20necesito%20estructurar%20un%20caso%20de%20inversi%C3%B3n%20o%20poner%20en%20marcha%20un%20proyecto%20en%20Uruguay%20%2F%20Argentina." target="_blank" rel="noopener">
+            <div>
+              <span class="t-tag">02 · Nuevos negocios y real estate</span>
+              <h2>Casos de inversión y puesta en marcha</h2>
+              <p>Diseño de modelo comercial, carpetas para inversores, validación de mercado en Uruguay/Argentina y lanzamiento llave en mano.</p>
+            </div>
+            <span class="t-action">Consultar por un proyecto →</span>
+          </a>
 
-    <section id="spo" class="container sp-32" aria-labelledby="spo-title">
-      <div class="section-head">
-        <div class="eyebrow">SPO</div>
-        <h2 id="spo-title">SPO | SerProfesionalOnline</h2>
-        <h3 id="spo-q" class="spo-q">¿Sos profesional?</h3>
-      </div>
-      <div class="spo-box">
-        <p>
-          SPO es nuestra unidad de negocio enfocada en entregar claridad y sistemas de acción para profesionales que buscan construir una presencia digital auténtica y efectiva. Es una solución pensada para potenciar tu marca personal sin que te consuma la vida.
-        </p>
-        <div>
-          <a class="btn primary" href="http://serprofesionalonline.wajntraub.ar/" target="_blank" rel="noopener">Conocé SPO</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="container sp-32" aria-labelledby="about-title">
-      <div class="section-head">
-        <div class="eyebrow">AW</div><h2 id="about-title">Sobre AW</h2>
-      </div>
-      <div class="about-card">
-        <h3 class="about-sub">Sobre Ariana Wajntraub</h3>
-        <p>Mi trabajo es sentarme con vos, escuchar lo que nadie más está diciendo y traducir la complejidad en un plan de acción claro.</p>
-        <p>
-Mi recorrido cruza la estrategia, la comunicación, la innovación y el arte. Por eso, AWante no es una agencia ni una consultoría tradicional. Somos un laboratorio para la construcción de proyectos. Acompañamos a fundadores y equipos entusiastas a navegar sus momentos clave: el lanzamiento de una idea, el reordenamiento del caos, la búsqueda de una nueva dirección.
-        </p>
-        <p class="linked-cta">
-          <a href="https://linkedin.com/in/arianawajntraub" target="_blank" rel="noopener">Conectá conmigo en LinkedIn →</a>
-        </p>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/arianawajntraub/" target="_blank" rel="noopener" aria-label="LinkedIn de Ariana Wajntraub">
-            <i class="fa-brands fa-linkedin-in"></i>
+          <a class="triage-box" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20necesito%20preparar%20una%20presentaci%C3%B3n%20o%20defensa%20estrat%C3%A9gica%20ante%20socios%20o%20inversores." target="_blank" rel="noopener">
+            <div>
+              <span class="t-tag">03 · Instancias decisivas</span>
+              <h2>Defensa ante directorios e inversores</h2>
+              <p>Estructuración argumental, financiera y visual cuando hay que defender un proyecto, captar capital o alinear a los socios.</p>
+            </div>
+            <span class="t-action">Preparar presentación clave →</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section id="contacto" class="container sp-32" aria-labelledby="ct-title">
+    <section id="areas" class="container sp-40" aria-labelledby="tools-title">
       <div class="section-head">
-        <div class="eyebrow">Contacto</div>
-        <h2 id="ct-title">¿Conversamos?</h2>
+        <div class="eyebrow">Intervenciones de negocio</div>
+        <h2 id="tools-title" class="sec-h2">Qué resolvemos dentro de tu organización</h2>
         <p class="muted">
-          Contanos, ¿cuál es tu nudo hoy?
+          No entregamos diagnósticos abstractos. Entramos donde el negocio necesita destrabar decisiones, ordenar su oferta comercial y salir al mercado con herramientas concretas.
         </p>
+      </div>
+      <div class="cards">
+        <article class="card" aria-labelledby="a1">
+          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-rocket"></i></div>
+          <h3 id="a1">Puesta en marcha de unidades de negocio</h3>
+          <p>
+            Para socios, desarrolladores y directorios que tienen un activo o proyecto y necesitan llevarlo a facturación real. Diseñamos el piloto comercial, validamos números y dejamos operativa la estructura de captación.
+          </p>
+        </article>
+        <article class="card" aria-labelledby="a2">
+          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></div>
+          <h3 id="a2">Posicionamiento y arquitectura comercial B2B</h3>
+          <p>
+            Para empresas con capacidad técnica o productiva cuya vidriera y discurso comercial quedaron atrás. Afilamos la propuesta de valor, armamos las herramientas de venta y ordenamos el seguimiento de oportunidades.
+          </p>
+        </article>
+        <article class="card" aria-labelledby="a3">
+          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-users-gear"></i></div>
+          <h3 id="a3">Sistemas de decisión y alineación operativa</h3>
+          <p>
+            Ordenamos la mesa de decisiones entre socios, gerencia y equipos comerciales. Definimos indicadores claros, circuitos de aprobación y responsabilidades para que la operación avance sin cuellos de botella.
+          </p>
+        </article>
+        <article class="card" aria-labelledby="a4">
+          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
+          <h3 id="a4">Desembarco y articulación en Uruguay y Argentina</h3>
+          <p>
+            Acompañamos a empresas y capitales que operan entre Buenos Aires, Maldonado / Punta del Este y Montevideo a adaptar su propuesta comercial a la cultura y escala real de cada plaza.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ecosistema" aria-labelledby="eco-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Foco territorial · Maldonado, Punta del Este y Buenos Aires</div>
+          <h2 id="eco-title" class="sec-h2">Ejecución situada en el mercado rioplatense</h2>
+          <p class="muted">
+            Con base operativa en Maldonado y presencia continua en Buenos Aires, estructuramos proyectos que requieren lectura fina del terreno, vínculos B2B y estándar ejecutivo internacional.
+          </p>
+        </div>
+
+        <div class="cards6">
+          <article class="card">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-briefcase"></i></div>
+            <h3>Casos de inversión y carpetas comerciales</h3>
+            <p>Preparamos activos inmobiliarios, comerciales o de servicios para que sean entendibles y atractivos frente a inversores y socios estratégicos.</p>
+          </article>
+          <article class="card">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-flask"></i></div>
+            <h3>Validación comercial de pilotos y MVPs</h3>
+            <p>Lanzamos y medimos unidades piloto con inversión acotada para comprobar tracción real antes de comprometer estructura fija.</p>
+          </article>
+          <article class="card">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3>Activos digitales y posicionamiento orgánico</h3>
+            <p>Construimos sitios corporativos rápidos, fichas técnicas y presencia en buscadores orientados a generar consultas B2B todo el año.</p>
+          </article>
+          <article class="card">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-handshake-angle"></i></div>
+            <h3>Dirección externa junto a fundadores</h3>
+            <p>Acompañamiento mensual para sostener el ritmo de ejecución comercial sin sumar estructura gerencial ociosa.</p>
+          </article>
+          <article class="card">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-chart-Simple"></i><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Reactivación de carteras y bases de clientes</h3>
+            <p>Transformamos bases de contactos históricas en oportunidades activas mediante segmentación ejecutiva y contacto directo.</p>
+          </article>
+          <article class="card">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></div>
+            <h3>Expansión regional y puentes comerciales</h3>
+            <p>Hoja de ruta y adaptación comercial para firmas que escalan operaciones entre Argentina, Uruguay y España.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="exposiciones" class="container sp-40" aria-labelledby="exp-title">
+      <div class="section-head">
+        <div class="eyebrow">Instancias críticas de negocio</div>
+        <h2 id="exp-title" class="sec-h2">Presentaciones de directorio, comités y rondas de socios</h2>
+        <p class="muted">
+          Cuando una decisión de inversión, una licitación o una alianza depende de una reunión clave, armamos la estructura argumental y el soporte ejecutivo de punta a punta.
+        </p>
+      </div>
+      <div class="feature-box">
+        <p>
+          <strong>El foco está en el criterio comercial y de negocio:</strong> qué números mostrar primero, cómo responder objeciones de directorio y cómo sintetizar un proyecto complejo en una propuesta que facilite el sí.
+        </p>
+        <ul class="list">
+          <li>Defensa de proyectos de inversión, desarrollos inmobiliarios o nuevas unidades ante socios y fondos.</li>
+          <li>Presentaciones comerciales de alto ticket frente a gerencias de compras o directorios corporativos.</li>
+          <li>Alineación estratégica ante equipos internos en procesos de cambio o reestructuración operativa.</li>
+        </ul>
+        <div style="margin-top:18px">
+          <a class="btn primary" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20tengo%20una%20presentaci%C3%B3n%20o%20reuni%C3%B3n%20clave%20de%20negocio%20y%20quiero%20armarla%20con%20AWante." target="_blank" rel="noopener">Coordinar preparación ejecutiva →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="spo" class="container sp-40" aria-labelledby="spo-title">
+      <div class="dark-feature-box">
+        <div class="eyebrow" style="color:var(--sand-gold)">Unidad para profesionales independientes y estudios</div>
+        <h2 id="spo-title" class="sec-h2" style="color:var(--stone);margin-top:6px">¿Sos profesional independiente o liderás una firma?</h2>
+        <p style="max-width:68ch;margin-bottom:20px">
+          A través de <a href="https://serprofesionalonline.wajntraub.ar/" target="_blank" rel="noopener" style="color:var(--sand-gold);text-decoration:underline;font-weight:700">SPO | Ser Profesional Online</a> resolvemos llave en mano la presencia web, la claridad de oferta y el posicionamiento en Google de abogados, escribanos, arquitectos, médicos y consultores, junto a la dirección visual de <a href="https://wajntraub.ar/whimsypov-web/" target="_blank" rel="noopener" style="color:var(--sand-gold);text-decoration:underline;font-weight:700">Whimsy POV</a>.
+        </p>
+        <a class="btn gold" href="https://serprofesionalonline.wajntraub.ar/" target="_blank" rel="noopener">Ir a SPO | Ser Profesional Online →</a>
+      </div>
+    </section>
+
+    <section id="about" class="container sp-40" aria-labelledby="about-title">
+      <div class="section-head">
+        <div class="eyebrow">Dirección ejecutiva</div>
+        <h2 id="about-title" class="sec-h2">Sobre <a href="https://wajntraub.ar/" target="_blank" rel="noopener" style="text-decoration:underline">Ariana Wajntraub</a></h2>
+      </div>
+      <div class="feature-box">
+        <p style="font-size:1.08rem;font-weight:700;margin-bottom:10px">
+          Traduzco escenarios de negocio complejos en estructuras comerciales listas para operar y facturar.
+        </p>
+        <p class="muted" style="margin-bottom:16px">
+          Con formación en negocios (MBA), máster en innovación y años de dirección estratégica junto a dueños de empresas y desarrolladores en Argentina y Uruguay, creé <strong>AWante</strong> para cubrir el vacío entre la consultoría tradicional que solo entrega diagnósticos y las agencias operativas que ejecutan sin entender el negocio.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn primary" href="https://www.linkedin.com/in/arianawajntraub/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> Trayectoria en LinkedIn</a>
+          <a class="btn ghost" href="https://wajntraub.ar/" target="_blank" rel="noopener">Visitar wajntraub.ar →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="container sp-40" aria-labelledby="ct-title">
+      <div class="section-head">
+        <div class="eyebrow">Contacto directo</div>
+        <h2 id="ct-title" class="sec-h2">Iniciemos una conversación ejecutiva</h2>
+        <p class="muted">
+          Escribinos directo por WhatsApp para una respuesta inmediata o dejá los datos de tu empresa o proyecto en el formulario.
+        </p>
+      </div>
+      <div style="margin-bottom:24px">
+        <a class="btn primary" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20desde%20AWante%20por%20mi%20empresa%20o%20proyecto." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp (+54 9 11 5468-7647)</a>
       </div>
       <form action="https://formspree.io/f/movnggor" method="POST">
         <div class="field">
-          <label for="nombre">Nombre</label>
+          <label for="nombre">Nombre y apellido</label>
           <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required>
         </div>
         <div class="field">
-          <label for="empresa">Empresa/Proyecto</label>
-          <input id="empresa" name="Empresa" type="text" placeholder="Nombre de tu empresa o proyecto">
+          <label for="empresa">Empresa o proyecto</label>
+          <input id="empresa" name="Empresa" type="text" placeholder="Nombre de la empresa, desarrollo o unidad">
         </div>
         <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="Email" type="email" placeholder="tu@correo.com" required>
+          <label for="email">Correo corporativo o teléfono</label>
+          <input id="email" name="Email" type="email" placeholder="tu@empresa.com" required>
         </div>
         <div class="field">
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="Mensaje" placeholder="¿Qué está pasando hoy? ¿Qué te gustaría que cambie?"></textarea>
+          <label for="mensaje">Objetivo o escenario actual</label>
+          <textarea id="mensaje" name="Mensaje" placeholder="¿Qué decisión comercial, activo o proyecto querés poner en marcha?"></textarea>
         </div>
-        <input type="hidden" name="_subject" value="Nuevo contacto desde AWante">
+        <input type="hidden" name="_subject" value="Nuevo contacto ejecutivo desde AWante">
         <input type="text" name="_gotcha" style="display:none">
         <button class="btn primary full" type="submit">
-          <i class="fa-regular fa-envelope"></i> Enviar mensaje
+          <i class="fa-regular fa-envelope"></i> Enviar consulta a dirección
         </button>
       </form>
     </section>
@@ -624,42 +532,34 @@ Mi recorrido cruza la estrategia, la comunicación, la innovación y el arte. Po
 
   <footer role="contentinfo">
     <div class="foot-wrap container">
-      <div class="foot-brand" aria-label="AWante — Consultoría Estratégica">
+      <div class="foot-brand" aria-label="AWante — Consultoría estratégica">
         <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 32" role="img" aria-label="AWante" style="height:28px;width:auto">
-          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#EADDC2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
           </g>
           <g><text x="58" y="24" class="logo-text">ante</text></g>
         </svg>
       </div>
-      <div class="foot-slogan">Desde tu idea hasta la acción.</div>
+      <div class="foot-slogan">De la decisión estratégica a la operación comercial · Maldonado y Buenos Aires</div>
       <div class="foot-socials" aria-label="Redes y contacto">
-        <a href="https://linkedin.com/in/arianawajntraub" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/arianawajntraub" target="_blank" rel="noopener" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin-in"></i>
         </a>
-        <a href="https://wa.me/541154687647?text=Hola%20AWante%2C%20necesito%20ayuda%20para%20mi%20proyecto" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <a href="https://wa.me/5491154687647?text=Hola%20AWante%2C%20quiero%20hacer%20una%20consulta%20comercial." target="_blank" rel="noopener" aria-label="WhatsApp">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
         <a href="mailto:arianawajntraub@gmail.com" aria-label="Email">
           <i class="fa-regular fa-envelope"></i>
         </a>
       </div>
-      <div class="copyright">© 2026 AWante. Todos los derechos reservados.</div>
+      <div class="copyright">© 2026 AWante · <a href="https://wajntraub.ar/" style="text-decoration:underline">Ariana Wajntraub</a>. Todos los derechos reservados.</div>
     </div>
   </footer>
 
   <script>
   (function(){
-    const header = document.querySelector('header.site-header');
-    const btn    = document.querySelector('.burger');
-    const menu   = document.getElementById('mobileMenu');
-
-    function syncScroll(){
-      if(window.scrollY > 16){ header.classList.add('scrolled'); }
-      else{ header.classList.remove('scrolled'); }
-    }
-    syncScroll();
-    window.addEventListener('scroll', syncScroll, {passive:true});
+    const btn  = document.querySelector('.burger');
+    const menu = document.getElementById('mobileMenu');
 
     window.toggleMenu = function(force){
       if(!menu || !btn) return;
@@ -669,26 +569,10 @@ Mi recorrido cruza la estrategia, la comunicación, la innovación y el arte. Po
     };
 
     document.addEventListener('click', (e)=>{
-      if(menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)){
+      if(menu && menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)){
         menu.classList.remove('open'); btn.setAttribute('aria-expanded','false');
       }
     }, {passive:true});
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape' && menu.classList.contains('open')){
-        menu.classList.remove('open'); btn.setAttribute('aria-expanded','false');
-      }
-    });
-  })();
-  </script>
-  <script>
-  (function(){
-    const header = document.querySelector('header.site-header');
-    function onScroll(){
-      if(window.scrollY > 16){ header.classList.add('scrolled'); }
-      else{ header.classList.remove('scrolled'); }
-    }
-    window.addEventListener('scroll', onScroll, {passive:true});
-    onScroll();
   })();
   </script>
 </body>
