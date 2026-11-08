@@ -32,7 +32,6 @@
         "@type": "Organization",
         "name": "AWante | Consultoría estratégica y ejecución B2B",
         "url": "https://awante.wajntraub.ar/",
-        "logo": "https://awante.wajntraub.ar/assets/brand/AWante_lockup_horizontal_dark.svg",
         "founder": {
           "@type": "Person",
           "name": "Ariana Wajntraub",
@@ -44,15 +43,6 @@
           "https://wa.me/5491154687647",
           "https://wajntraub.ar/"
         ]
-      },
-      {
-        "@type": "Service",
-        "name": "Dirección comercial B2B, puesta en marcha de proyectos y casos de inversión",
-        "provider": {
-          "@type": "Organization",
-          "name": "AWante"
-        },
-        "serviceType": "Consultoría estratégica y comercial B2B"
       }
     ]
   }
@@ -62,207 +52,647 @@
     :root{
       --obsidian: #1A1A1A;
       --obsidian-soft: #242220;
+      --obsidian-card: #2A2724;
       --stone: #F0EDE1;
+      --stone-warm: #E5DEC9;
       --stone-card: #FAF8F2;
       --sand-gold: #EADDC2;
       --bronze: #6E533A;
       --bronze-hover: #58412C;
       --ochre: #876F55;
       --text-dark: #1A1A1A;
-      --text-muted: #544E47;
-      --border-light: rgba(26, 26, 26, 0.12);
-      --border-dark: rgba(234, 221, 194, 0.18);
-      --radius: 16px;
-      --container: 1140px;
-      --header-h: 72px;
+      --text-muted: #4E4841;
+      --border-light: rgba(26, 26, 26, 0.14);
+      --border-dark: rgba(234, 221, 194, 0.22);
+      --radius: 18px;
+      --container: 1120px;
+      --header-h: 76px;
     }
-    html{scroll-behavior:smooth}
-    *,*::before,*::after{box-sizing:border-box}
-    body{
-      margin:0;
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
       background: var(--stone);
       color: var(--text-dark);
       font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height:1.55;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
     }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    .container{max-width:var(--container);margin-inline:auto;padding:0 20px}
-    section{scroll-margin-top:calc(var(--header-h) + 16px)}
 
-    header.site-header{
-      position:sticky;top:0;z-index:100;
-      background: rgba(26, 26, 26, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--border-dark);
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: clamp(20px, 5vw, 44px);
+      padding-right: clamp(20px, 5vw, 44px);
+    }
+
+    section {
+      scroll-margin-top: calc(var(--header-h) + 16px);
+      width: 100%;
+    }
+
+    /* Header */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26, 26, 26, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
       color: var(--stone);
     }
-    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);gap:16px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .brand-mark{height:34px;width:auto;display:block}
-    .logo-text{
-      font-family:'Manrope',sans-serif;font-weight:800;letter-spacing:-.02em;
-      fill: var(--stone);text-rendering:geometricPrecision;dominant-baseline:alphabetic
-    }
-    nav.primary{display:flex;align-items:center;gap:18px;font-weight:700;font-size:13.5px}
-    nav.primary a{color:rgba(240,237,225,0.8);transition:color .2s}
-    nav.primary a:hover{color:var(--sand-gold)}
-    nav.primary .pipe{color:rgba(234,221,194,0.25)}
 
-    .burger{
-      display:none;background:var(--obsidian-soft);border:1px solid var(--border-dark);
-      border-radius:10px;padding:10px 12px;cursor:pointer;color:var(--sand-gold);font-size:1.1rem
-    }
-    #mobileMenu{
-      display:none;position:fixed;right:16px;top:calc(var(--header-h) + 8px);
-      background:var(--obsidian);border:1px solid var(--border-dark);
-      box-shadow:0 16px 36px rgba(0,0,0,0.45);border-radius:14px;overflow:hidden;z-index:9999;
-      min-width: 230px;
-    }
-    #mobileMenu.open{display:block}
-    #mobileMenu a{
-      display:block;padding:13px 18px;color:var(--stone);font-weight:700;font-size:14px;
-      border-bottom:1px solid rgba(234,221,194,0.08);
-    }
-    #mobileMenu a:last-child{border-bottom:none}
-    #mobileMenu a:hover{background:var(--obsidian-soft);color:var(--sand-gold)}
-
-    @media (max-width:900px){
-      nav.primary{display:none}
-      .burger{display:inline-flex;align-items:center;justify-content:center}
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--header-h);
+      gap: 16px;
     }
 
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:10px;
-      padding:12px 18px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;
-      border:1px solid transparent;transition:all .2s ease;cursor:pointer;white-space:nowrap
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
     }
-    .btn.primary{background:var(--bronze);color:var(--stone);border-color:rgba(234,221,194,0.25)}
-    .btn.primary:hover{background:var(--bronze-hover);transform:translateY(-1px)}
-    .btn.gold{background:var(--sand-gold);color:var(--obsidian);border-color:var(--sand-gold)}
-    .btn.gold:hover{background:#dfd0b0;transform:translateY(-1px)}
-    .btn.ghost-dark{background:rgba(240,237,225,0.06);border-color:var(--border-dark);color:var(--stone)}
-    .btn.ghost-dark:hover{border-color:var(--sand-gold);color:var(--sand-gold)}
-    .btn.ghost{background:transparent;border-color:var(--bronze);color:var(--bronze)}
-    .btn.ghost:hover{background:rgba(110,83,58,0.08)}
-    .btn.full{width:100%}
 
-    .hero-band{
+    .brand-mark {
+      height: 38px;
+      width: auto;
+      overflow: visible;
+    }
+
+    nav.primary {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-weight: 700;
+      font-size: 13.5px;
+    }
+
+    nav.primary a.nav-link {
+      color: rgba(240, 237, 225, 0.84);
+      transition: color .2s;
+    }
+
+    nav.primary a.nav-link:hover {
+      color: var(--sand-gold);
+    }
+
+    nav.primary .pipe {
+      color: rgba(234, 221, 194, 0.25);
+    }
+
+    .burger {
+      display: none;
+      background: var(--obsidian-soft);
+      border: 1px solid var(--border-dark);
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      color: var(--sand-gold);
+      font-size: 1.15rem;
+    }
+
+    #mobileMenu {
+      display: none;
+      position: fixed;
+      right: 20px;
+      left: 20px;
+      top: calc(var(--header-h) + 10px);
       background: var(--obsidian);
-      background-image: radial-gradient(circle at 80% 0%, rgba(110, 83, 58, 0.28) 0%, rgba(26, 26, 26, 0) 65%);
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.55);
+      border-radius: 16px;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    #mobileMenu.open {
+      display: block;
+    }
+
+    #mobileMenu a {
+      display: block;
+      padding: 15px 20px;
       color: var(--stone);
-      padding: 52px 0 48px;
+      font-weight: 700;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(234, 221, 194, 0.1);
+    }
+
+    #mobileMenu a:last-child {
+      border-bottom: none;
+      background: var(--bronze);
+      color: var(--stone);
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      nav.primary {
+        display: none;
+      }
+      .burger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 12px;
+      padding: 14px 22px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800;
+      font-size: 14.5px;
+      border: 1px solid transparent;
+      transition: all .2s ease;
+      cursor: pointer;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .btn.primary {
+      background: var(--bronze);
+      color: var(--stone);
+      border-color: rgba(234, 221, 194, 0.3);
+    }
+
+    .btn.primary:hover {
+      background: var(--bronze-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn.gold {
+      background: var(--sand-gold);
+      color: var(--obsidian);
+      border-color: var(--sand-gold);
+    }
+
+    .btn.gold:hover {
+      background: #dfd0b0;
+      transform: translateY(-2px);
+    }
+
+    .btn.ghost-dark {
+      background: rgba(240, 237, 225, 0.07);
+      border-color: var(--border-dark);
+      color: var(--stone);
+    }
+
+    .btn.ghost-dark:hover {
+      border-color: var(--sand-gold);
+      color: var(--sand-gold);
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border-color: var(--bronze);
+      color: var(--bronze);
+    }
+
+    .btn.ghost:hover {
+      background: rgba(110, 83, 58, 0.08);
+    }
+
+    .btn.full {
+      width: 100%;
+    }
+
+    /* Hero Band */
+    .hero-band {
+      background: var(--obsidian);
+      background-image: radial-gradient(circle at 80% 0%, rgba(110, 83, 58, 0.32) 0%, rgba(26, 26, 26, 0) 68%);
+      color: var(--stone);
+      padding: 56px 0 56px;
       border-bottom: 1px solid var(--border-dark);
     }
-    .eyebrow-pill{
-      display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:0.14em;
-      text-transform:uppercase;color:var(--sand-gold);background:rgba(110,83,58,0.32);
-      border:1px solid var(--border-dark);padding:6px 12px;border-radius:999px;margin-bottom:16px
-    }
-    h1{
-      font-weight:800;line-height:1.08;margin:0 0 14px;
-      font-size:clamp(1.9rem,4vw,3.1rem);letter-spacing:-0.03em;color:var(--stone);max-width:25ch
-    }
-    .hero-lead{
-      font-size:clamp(1rem,1.8vw,1.15rem);color:rgba(240,237,225,0.82);max-width:66ch;margin:0 0 10px
-    }
-    .signature{font-size:0.92rem;font-weight:600;color:var(--sand-gold);margin-bottom:22px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
 
-    .triage-title{
-      font-size:11.5px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;
-      color:var(--sand-gold);margin-bottom:12px
-    }
-    .triage-grid{
-      display:grid;grid-template-columns:repeat(12,1fr);gap:14px
-    }
-    .triage-box{
-      grid-column:span 12;background:var(--obsidian-soft);border:1px solid var(--border-dark);
-      border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;
-      gap:10px;transition:all .2s ease
-    }
-    .triage-box:hover{border-color:var(--sand-gold);transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,0.4)}
-    @media(min-width:820px){.triage-box{grid-column:span 4}}
-    .triage-box .t-tag{font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--sand-gold)}
-    .triage-box h2{font-size:17px;font-weight:800;margin:4px 0 6px;color:var(--stone);letter-spacing:-0.01em}
-    .triage-box p{font-size:13.5px;color:rgba(240,237,225,0.74);margin:0}
-    .triage-box .t-action{font-size:13px;font-weight:800;color:var(--sand-gold);margin-top:4px}
-
-    .sp-40{padding:44px 0}
-    .section-head{margin-bottom:24px}
-    .eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:.75rem;font-weight:800;color:var(--bronze)}
-    h2.sec-h2{
-      font-weight:800;line-height:1.15;margin:6px 0 10px;
-      font-size:clamp(1.55rem,3vw,2.2rem);letter-spacing:-0.02em
-    }
-    .muted{color:var(--text-muted);max-width:70ch}
-
-    .cards{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr)}}
-    .card{
-      background:var(--stone-card);border:1px solid var(--border-light);
-      border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:8px;
-      transition:transform .2s ease, box-shadow .2s ease
-    }
-    .card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(26,26,26,0.06)}
-    .card h3{font-weight:800;font-size:18px;margin:4px 0}
-    .card p{margin:0;color:var(--text-muted);font-size:14.5px}
-    .iconchip{
-      width:46px;height:46px;border-radius:12px;background:var(--obsidian);
-      display:inline-flex;align-items:center;justify-content:center;color:var(--sand-gold);font-size:20px
+    .eyebrow-pill {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      background: rgba(110, 83, 58, 0.34);
+      border: 1px solid var(--border-dark);
+      padding: 7px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      max-width: 100%;
     }
 
-    section#ecosistema{
-      background: #E6E1D3;
+    .hero-brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .hero-brand-lockup svg {
+      height: 52px;
+      width: auto;
+      overflow: visible;
+    }
+
+    .hero-brand-lockup .hero-divider {
+      color: var(--sand-gold);
+      font-weight: 300;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .hero-brand-lockup .hero-unit {
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      font-weight: 700;
+      color: var(--sand-gold);
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 16px;
+      font-size: clamp(1.85rem, 3.8vw, 3rem);
+      letter-spacing: -0.03em;
+      color: var(--stone);
+      max-width: 26ch;
+    }
+
+    .hero-lead {
+      font-size: clamp(1rem, 1.7vw, 1.15rem);
+      color: rgba(240, 237, 225, 0.85);
+      max-width: 64ch;
+      margin: 0 0 12px;
+    }
+
+    .signature {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--sand-gold);
+      margin-bottom: 26px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 42px;
+    }
+
+    .triage-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      margin-bottom: 14px;
+    }
+
+    .triage-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 860px) {
+      .triage-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .triage-box {
+      background: var(--obsidian-card);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all .2s ease;
+    }
+
+    .triage-box:hover {
+      border-color: var(--sand-gold);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+    }
+
+    .triage-box .t-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sand-gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .triage-box h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      color: var(--stone);
+      letter-spacing: -0.01em;
+    }
+
+    .triage-box p {
+      font-size: 14px;
+      color: rgba(240, 237, 225, 0.78);
+      margin: 0;
+    }
+
+    .triage-box .t-action {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--sand-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Sections */
+    .sec-band {
+      padding: 64px 0;
+    }
+
+    .sec-band.warm {
+      background: var(--stone-warm);
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
-      padding: 48px 0;
     }
-    .cards6{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:720px){.cards6{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1024px){.cards6{grid-template-columns:repeat(3,1fr)}}
 
-    .feature-box{
-      background:var(--stone-card);border:1px solid var(--border-light);
-      border-radius:var(--radius);padding:28px;
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 36px auto;
+      text-align: center;
     }
-    .dark-feature-box{
-      background:var(--obsidian);color:var(--stone);border:1px solid var(--border-dark);
-      border-radius:var(--radius);padding:28px;
-    }
-    .dark-feature-box p{color:rgba(240,237,225,0.82)}
-    .list{display:grid;gap:10px;margin:14px 0;padding-left:20px;color:var(--text-muted)}
-    .list li{margin-bottom:4px}
 
-    form{display:grid;gap:14px;max-width:680px}
-    .field{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px}
-    .field input,.field textarea{
-      padding:13px 15px;border-radius:10px;
-      border:1px solid var(--border-light);background:var(--stone-card);font:inherit;font-weight:500
+    .eyebrow {
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .76rem;
+      font-weight: 800;
+      color: var(--bronze);
+      margin-bottom: 8px;
     }
-    .field input:focus,.field textarea:focus{outline:none;border-color:var(--bronze)}
-    .field textarea{min-height:120px;resize:vertical}
 
-    footer{
-      background:var(--obsidian);color:var(--stone);margin-top:40px;border-top:1px solid var(--border-dark)
+    h2.sec-h2 {
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0 0 12px;
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
     }
-    footer .foot-wrap{
-      display:grid;gap:14px;justify-items:center;padding:36px 20px;
-      text-align:center;max-width:var(--container);margin-inline:auto
-    }
-    .foot-slogan{font-weight:600;color:var(--sand-gold);font-size:14px}
-    .foot-socials{display:flex;gap:12px;flex-wrap:wrap}
-    .foot-socials a{
-      width:42px;height:42px;border-radius:10px;background:var(--obsidian-soft);
-      color:var(--sand-gold);display:inline-flex;align-items:center;justify-content:center;
-      border:1px solid var(--border-dark);transition:all .2s
-    }
-    .foot-socials a:hover{background:var(--bronze);color:var(--stone)}
-    .copyright{color:rgba(240,237,225,0.6);font-size:.85rem}
 
-    @media (max-width: 640px){
-      .cta-row .btn{width:100%}
+    .muted {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      margin: 0 auto;
+    }
+
+    /* Cards 2x2 and 3x2 */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 740px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .cards6 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 720px) {
+      .cards6 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cards6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--stone-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 10px 26px rgba(26, 26, 26, 0.04);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(26, 26, 26, 0.08);
+    }
+
+    .card h3 {
+      font-weight: 800;
+      font-size: 19px;
+      margin: 4px 0 2px;
+      color: var(--text-dark);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .iconchip {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--obsidian);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sand-gold);
+      font-size: 20px;
+    }
+
+    /* Feature Boxes */
+    .feature-box {
+      background: var(--stone-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 40px);
+      box-shadow: 0 12px 30px rgba(26, 26, 26, 0.05);
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .dark-feature-box {
+      background: var(--obsidian);
+      background-image: radial-gradient(circle at 90% 10%, rgba(110, 83, 58, 0.35) 0%, rgba(26, 26, 26, 0) 65%);
+      color: var(--stone);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius);
+      padding: clamp(28px, 4.5vw, 44px);
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .dark-feature-box p {
+      color: rgba(240, 237, 225, 0.85);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+      padding-left: 20px;
+      color: var(--text-muted);
+    }
+
+    /* Contact Form */
+    .contact-card {
+      background: var(--stone-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: clamp(24px, 4vw, 40px);
+      max-width: 720px;
+      margin: 0 auto;
+      box-shadow: 0 12px 30px rgba(26, 26, 26, 0.05);
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .field input, .field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      font: inherit;
+      font-weight: 500;
+    }
+
+    .field input:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--bronze);
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--obsidian);
+      color: var(--stone);
+      border-top: 1px solid var(--border-dark);
+    }
+
+    footer .foot-wrap {
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+      padding: 44px 20px;
+      text-align: center;
+    }
+
+    .foot-slogan {
+      font-weight: 600;
+      color: var(--sand-gold);
+      font-size: 14.5px;
+    }
+
+    .foot-socials {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .foot-socials a {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--obsidian-soft);
+      color: var(--sand-gold);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-dark);
+      transition: all .2s;
+    }
+
+    .foot-socials a:hover {
+      background: var(--bronze);
+      color: var(--stone);
+    }
+
+    .copyright {
+      color: rgba(240, 237, 225, 0.6);
+      font-size: .88rem;
+    }
+
+    @media (max-width: 640px) {
+      .cta-row .btn {
+        width: 100%;
+      }
+      .hero-brand-lockup svg {
+        height: 42px;
+      }
+      .hero-brand-lockup .hero-divider {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -270,25 +700,23 @@
   <header class="site-header" role="banner">
     <div class="container nav-wrap">
       <a href="#top" class="brand site-logo" aria-label="AWante — Consultoría estratégica">
-        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 32" role="img" aria-label="AWante">
-          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#EADDC2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 44" role="img" aria-label="AWante">
+          <g transform="translate(0,2) scale(0.55)" fill="none" stroke="#EADDC2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
           </g>
-          <g>
-            <text x="58" y="24" class="logo-text">ante</text>
-          </g>
+          <text x="58" y="38.5" font-family="Manrope, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5" fill="#F0EDE1">ante</text>
         </svg>
       </a>
       <nav class="primary" aria-label="Navegación principal">
-        <a href="#areas">Intervenciones B2B</a>
+        <a class="nav-link" href="#areas">Intervenciones B2B</a>
         <span class="pipe">|</span>
-        <a href="#ecosistema">Foco Uruguay y región</a>
+        <a class="nav-link" href="#ecosistema">Foco Uruguay y región</a>
         <span class="pipe">|</span>
-        <a href="#exposiciones">Directorios e inversión</a>
+        <a class="nav-link" href="#exposiciones">Directorios e inversión</a>
         <span class="pipe">|</span>
-        <a href="#about">Dirección</a>
+        <a class="nav-link" href="#about">Dirección</a>
         <span class="pipe">|</span>
-        <a class="btn gold" style="padding:8px 14px;font-size:13px" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20desde%20AWante%20para%20evaluar%20un%20proyecto%20o%20empresa." target="_blank" rel="noopener">WhatsApp directo</a>
+        <a class="btn gold" style="padding:10px 16px;font-size:13px" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20desde%20AWante%20para%20evaluar%20un%20proyecto%20o%20empresa." target="_blank" rel="noopener">WhatsApp directo</a>
       </nav>
       <button class="burger"
         type="button"
@@ -304,7 +732,7 @@
         <a href="#ecosistema" onclick="toggleMenu(false)">Foco Uruguay y región</a>
         <a href="#exposiciones" onclick="toggleMenu(false)">Directorios e inversión</a>
         <a href="#about" onclick="toggleMenu(false)">Sobre Ariana Wajntraub</a>
-        <a href="#contacto" onclick="toggleMenu(false)">Contacto directo</a>
+        <a href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20desde%20AWante." target="_blank" rel="noopener" onclick="toggleMenu(false)">Hablar por WhatsApp</a>
       </div>
     </div>
   </header>
@@ -313,11 +741,24 @@
     <section class="hero-band" aria-labelledby="hero-title">
       <div class="container">
         <span class="eyebrow-pill">Consultoría estratégica y ejecución B2B · Maldonado y Buenos Aires</span>
-        <h1 id="hero-title">De la decisión estratégica a la operación comercial funcionando.</h1>
+
+        <div class="hero-brand-lockup" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 44">
+            <g transform="translate(0,2) scale(0.55)" fill="none" stroke="#EADDC2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
+            </g>
+            <text x="58" y="38.5" font-family="Manrope, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5" fill="#F0EDE1">ante</text>
+          </svg>
+          <span class="hero-divider">|</span>
+          <span class="hero-unit">De tu idea y estructura a la operación real</span>
+        </div>
+
+        <h1 id="hero-title">Dirección estratégica y sistema comercial para empresas y proyectos en marcha.</h1>
         <p class="hero-lead">
-          Intervenimos en empresas, desarrollos y nuevas unidades de negocio para estructurar la oferta, construir los activos de venta y ejecutar con criterio gerencial.
+          Intervenimos en organizaciones, desarrollos inmobiliarios y nuevas unidades de negocio para estructurar la oferta, construir los activos de venta y ejecutar con criterio gerencial.
         </p>
-        <p class="signature">Dirección: <a href="https://wajntraub.ar/" style="text-decoration:underline;color:var(--sand-gold)">Ariana Wajntraub</a></p>
+        <p class="signature">Dirección ejecutiva: <a href="https://wajntraub.ar/" style="text-decoration:underline;color:var(--sand-gold)">Ariana Wajntraub</a></p>
+
         <div class="cta-row">
           <a class="btn gold" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20por%20AWante%20para%20coordinar%20una%20conversaci%C3%B3n%20sobre%20mi%20empresa%20o%20proyecto." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Coordinar conversación por WhatsApp</a>
           <a class="btn ghost-dark" href="#areas"><i class="fa-solid fa-layer-group"></i> Ver alcances facturables</a>
@@ -338,7 +779,7 @@
             <div>
               <span class="t-tag">02 · Nuevos negocios y real estate</span>
               <h2>Casos de inversión y puesta en marcha</h2>
-              <p>Diseño de modelo comercial, carpetas para inversores, validación de mercado en Uruguay/Argentina y lanzamiento llave en mano.</p>
+              <p>Diseño de modelo comercial, carpetas para inversores, validación de mercado en Uruguay y Argentina y lanzamiento llave en mano.</p>
             </div>
             <span class="t-action">Consultar por un proyecto →</span>
           </a>
@@ -355,47 +796,49 @@
       </div>
     </section>
 
-    <section id="areas" class="container sp-40" aria-labelledby="tools-title">
-      <div class="section-head">
-        <div class="eyebrow">Intervenciones de negocio</div>
-        <h2 id="tools-title" class="sec-h2">Qué resolvemos dentro de tu organización</h2>
-        <p class="muted">
-          No entregamos diagnósticos abstractos. Entramos donde el negocio necesita destrabar decisiones, ordenar su oferta comercial y salir al mercado con herramientas concretas.
-        </p>
-      </div>
-      <div class="cards">
-        <article class="card" aria-labelledby="a1">
-          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-rocket"></i></div>
-          <h3 id="a1">Puesta en marcha de unidades de negocio</h3>
-          <p>
-            Para socios, desarrolladores y directorios que tienen un activo o proyecto y necesitan llevarlo a facturación real. Diseñamos el piloto comercial, validamos números y dejamos operativa la estructura de captación.
+    <section id="areas" class="sec-band" aria-labelledby="tools-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Intervenciones de negocio</div>
+          <h2 id="tools-title" class="sec-h2">Qué resolvemos dentro de tu organización</h2>
+          <p class="muted">
+            Entramos donde el negocio necesita destrabar decisiones, ordenar su oferta comercial y salir al mercado con activos concretos listos para facturar.
           </p>
-        </article>
-        <article class="card" aria-labelledby="a2">
-          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></div>
-          <h3 id="a2">Posicionamiento y arquitectura comercial B2B</h3>
-          <p>
-            Para empresas con capacidad técnica o productiva cuya vidriera y discurso comercial quedaron atrás. Afilamos la propuesta de valor, armamos las herramientas de venta y ordenamos el seguimiento de oportunidades.
-          </p>
-        </article>
-        <article class="card" aria-labelledby="a3">
-          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-users-gear"></i></div>
-          <h3 id="a3">Sistemas de decisión y alineación operativa</h3>
-          <p>
-            Ordenamos la mesa de decisiones entre socios, gerencia y equipos comerciales. Definimos indicadores claros, circuitos de aprobación y responsabilidades para que la operación avance sin cuellos de botella.
-          </p>
-        </article>
-        <article class="card" aria-labelledby="a4">
-          <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
-          <h3 id="a4">Desembarco y articulación en Uruguay y Argentina</h3>
-          <p>
-            Acompañamos a empresas y capitales que operan entre Buenos Aires, Maldonado / Punta del Este y Montevideo a adaptar su propuesta comercial a la cultura y escala real de cada plaza.
-          </p>
-        </article>
+        </div>
+        <div class="cards">
+          <article class="card" aria-labelledby="a1">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-rocket"></i></div>
+            <h3 id="a1">Puesta en marcha de unidades de negocio</h3>
+            <p>
+              Para socios, desarrolladores y directorios que tienen un activo o proyecto y necesitan llevarlo a facturación real. Diseñamos el piloto comercial, validamos números y dejamos operativa la estructura de captación.
+            </p>
+          </article>
+          <article class="card" aria-labelledby="a2">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-bullseye"></i></div>
+            <h3 id="a2">Posicionamiento y arquitectura comercial B2B</h3>
+            <p>
+              Para empresas con capacidad técnica o productiva cuya vidriera y discurso comercial quedaron atrás. Afilamos la propuesta de valor, armamos las herramientas de venta y ordenamos el seguimiento de oportunidades.
+            </p>
+          </article>
+          <article class="card" aria-labelledby="a3">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-users-gear"></i></div>
+            <h3 id="a3">Sistemas de decisión y alineación operativa</h3>
+            <p>
+              Ordenamos la mesa de decisiones entre socios, gerencia y equipos comerciales. Definimos indicadores claros, circuitos de aprobación y responsabilidades para que la operación avance sin cuellos de botella.
+            </p>
+          </article>
+          <article class="card" aria-labelledby="a4">
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-globe"></i></div>
+            <h3 id="a4">Desembarco y articulación en Uruguay y Argentina</h3>
+            <p>
+              Acompañamos a empresas y capitales que operan entre Buenos Aires, Maldonado / Punta del Este y Montevideo a adaptar su propuesta comercial a la cultura y escala real de cada plaza.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="ecosistema" aria-labelledby="eco-title">
+    <section id="ecosistema" class="sec-band warm" aria-labelledby="eco-title">
       <div class="container">
         <div class="section-head">
           <div class="eyebrow">Foco territorial · Maldonado, Punta del Este y Buenos Aires</div>
@@ -427,7 +870,7 @@
             <p>Acompañamiento mensual para sostener el ritmo de ejecución comercial sin sumar estructura gerencial ociosa.</p>
           </article>
           <article class="card">
-            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-chart-Simple"></i><i class="fa-solid fa-chart-line"></i></div>
+            <div class="iconchip" aria-hidden="true"><i class="fa-solid fa-chart-line"></i></div>
             <h3>Reactivación de carteras y bases de clientes</h3>
             <p>Transformamos bases de contactos históricas en oportunidades activas mediante segmentación ejecutiva y contacto directo.</p>
           </article>
@@ -440,104 +883,114 @@
       </div>
     </section>
 
-    <section id="exposiciones" class="container sp-40" aria-labelledby="exp-title">
-      <div class="section-head">
-        <div class="eyebrow">Instancias críticas de negocio</div>
-        <h2 id="exp-title" class="sec-h2">Presentaciones de directorio, comités y rondas de socios</h2>
-        <p class="muted">
-          Cuando una decisión de inversión, una licitación o una alianza depende de una reunión clave, armamos la estructura argumental y el soporte ejecutivo de punta a punta.
-        </p>
-      </div>
-      <div class="feature-box">
-        <p>
-          <strong>El foco está en el criterio comercial y de negocio:</strong> qué números mostrar primero, cómo responder objeciones de directorio y cómo sintetizar un proyecto complejo en una propuesta que facilite el sí.
-        </p>
-        <ul class="list">
-          <li>Defensa de proyectos de inversión, desarrollos inmobiliarios o nuevas unidades ante socios y fondos.</li>
-          <li>Presentaciones comerciales de alto ticket frente a gerencias de compras o directorios corporativos.</li>
-          <li>Alineación estratégica ante equipos internos en procesos de cambio o reestructuración operativa.</li>
-        </ul>
-        <div style="margin-top:18px">
-          <a class="btn primary" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20tengo%20una%20presentaci%C3%B3n%20o%20reuni%C3%B3n%20clave%20de%20negocio%20y%20quiero%20armarla%20con%20AWante." target="_blank" rel="noopener">Coordinar preparación ejecutiva →</a>
+    <section id="exposiciones" class="sec-band" aria-labelledby="exp-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Instancias críticas de negocio</div>
+          <h2 id="exp-title" class="sec-h2">Presentaciones de directorio, comités y rondas de socios</h2>
+          <p class="muted">
+            Cuando una decisión de inversión, una licitación o una alianza depende de una reunión clave, armamos la estructura argumental y el soporte ejecutivo de punta a punta.
+          </p>
+        </div>
+        <div class="feature-box">
+          <p style="font-size:1.05rem">
+            <strong>El foco está en el criterio comercial y de negocio:</strong> qué números mostrar primero, cómo responder objeciones de directorio y cómo sintetizar un proyecto complejo en una propuesta que facilite el sí.
+          </p>
+          <ul class="list">
+            <li>Defensa de proyectos de inversión, desarrollos inmobiliarios o nuevas unidades ante socios y fondos.</li>
+            <li>Presentaciones comerciales de alto ticket frente a gerencias de compras o directorios corporativos.</li>
+            <li>Alineación estratégica ante equipos internos en procesos de cambio o reestructuración operativa.</li>
+          </ul>
+          <div style="margin-top:22px">
+            <a class="btn primary" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20tengo%20una%20presentaci%C3%B3n%20o%20reuni%C3%B3n%20clave%20de%20negocio%20y%20quiero%20armarla%20con%20AWante." target="_blank" rel="noopener">Coordinar preparación ejecutiva →</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="spo" class="container sp-40" aria-labelledby="spo-title">
-      <div class="dark-feature-box">
-        <div class="eyebrow" style="color:var(--sand-gold)">Unidad para profesionales independientes y estudios</div>
-        <h2 id="spo-title" class="sec-h2" style="color:var(--stone);margin-top:6px">¿Sos profesional independiente o liderás una firma?</h2>
-        <p style="max-width:68ch;margin-bottom:20px">
-          A través de <a href="https://serprofesionalonline.wajntraub.ar/" target="_blank" rel="noopener" style="color:var(--sand-gold);text-decoration:underline;font-weight:700">SPO | Ser Profesional Online</a> resolvemos llave en mano la presencia web, la claridad de oferta y el posicionamiento en Google de abogados, escribanos, arquitectos, médicos y consultores, junto a la dirección visual de <a href="https://wajntraub.ar/whimsypov-web/" target="_blank" rel="noopener" style="color:var(--sand-gold);text-decoration:underline;font-weight:700">Whimsy POV</a>.
-        </p>
-        <a class="btn gold" href="https://serprofesionalonline.wajntraub.ar/" target="_blank" rel="noopener">Ir a SPO | Ser Profesional Online →</a>
-      </div>
-    </section>
-
-    <section id="about" class="container sp-40" aria-labelledby="about-title">
-      <div class="section-head">
-        <div class="eyebrow">Dirección ejecutiva</div>
-        <h2 id="about-title" class="sec-h2">Sobre <a href="https://wajntraub.ar/" target="_blank" rel="noopener" style="text-decoration:underline">Ariana Wajntraub</a></h2>
-      </div>
-      <div class="feature-box">
-        <p style="font-size:1.08rem;font-weight:700;margin-bottom:10px">
-          Traduzco escenarios de negocio complejos en estructuras comerciales listas para operar y facturar.
-        </p>
-        <p class="muted" style="margin-bottom:16px">
-          Con formación en negocios (MBA), máster en innovación y años de dirección estratégica junto a dueños de empresas y desarrolladores en Argentina y Uruguay, creé <strong>AWante</strong> para cubrir el vacío entre la consultoría tradicional que solo entrega diagnósticos y las agencias operativas que ejecutan sin entender el negocio.
-        </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn primary" href="https://www.linkedin.com/in/arianawajntraub/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> Trayectoria en LinkedIn</a>
-          <a class="btn ghost" href="https://wajntraub.ar/" target="_blank" rel="noopener">Visitar wajntraub.ar →</a>
+    <section id="spo" class="sec-band" style="padding-top:0" aria-labelledby="spo-title">
+      <div class="container">
+        <div class="dark-feature-box">
+          <div class="eyebrow" style="color:var(--sand-gold)">Unidad para profesionales independientes y estudios</div>
+          <h2 id="spo-title" class="sec-h2" style="color:var(--stone);margin-top:6px">¿Sos profesional independiente o liderás una firma?</h2>
+          <p style="max-width:64ch;margin-bottom:24px">
+            A través de <a href="https://serprofesionalonline.wajntraub.ar/" target="_blank" rel="noopener" style="color:var(--sand-gold);text-decoration:underline;font-weight:700">SPO | Ser Profesional Online</a> resolvemos llave en mano la presencia web, la claridad de oferta y el posicionamiento en Google de abogados, escribanos, arquitectos, médicos y consultores, junto a la dirección visual de <a href="https://wajntraub.ar/whimsypov-web/" target="_blank" rel="noopener" style="color:var(--sand-gold);text-decoration:underline;font-weight:700">Whimsy POV</a>.
+          </p>
+          <a class="btn gold" href="https://serprofesionalonline.wajntraub.ar/" target="_blank" rel="noopener">Ir a SPO | Ser Profesional Online →</a>
         </div>
       </div>
     </section>
 
-    <section id="contacto" class="container sp-40" aria-labelledby="ct-title">
-      <div class="section-head">
-        <div class="eyebrow">Contacto directo</div>
-        <h2 id="ct-title" class="sec-h2">Iniciemos una conversación ejecutiva</h2>
-        <p class="muted">
-          Escribinos directo por WhatsApp para una respuesta inmediata o dejá los datos de tu empresa o proyecto en el formulario.
-        </p>
+    <section id="about" class="sec-band warm" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Dirección ejecutiva</div>
+          <h2 id="about-title" class="sec-h2">Sobre <a href="https://wajntraub.ar/" target="_blank" rel="noopener" style="text-decoration:underline">Ariana Wajntraub</a></h2>
+        </div>
+        <div class="feature-box" style="text-align:center">
+          <p style="font-size:1.15rem;font-weight:800;margin-bottom:12px">
+            Traduzco escenarios de negocio complejos en estructuras comerciales listas para operar y facturar.
+          </p>
+          <p class="muted" style="margin-bottom:24px">
+            Con formación en negocios (MBA), máster en innovación y años de dirección estratégica junto a dueños de empresas y desarrolladores en Argentina y Uruguay, creé <strong>AWante</strong> para cubrir el vacío entre la consultoría tradicional que solo entrega diagnósticos y las agencias operativas que ejecutan sin entender la rentabilidad del negocio.
+          </p>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <a class="btn primary" href="https://www.linkedin.com/in/arianawajntraub/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> Trayectoria en LinkedIn</a>
+            <a class="btn ghost" href="https://wajntraub.ar/" target="_blank" rel="noopener">Visitar wajntraub.ar →</a>
+          </div>
+        </div>
       </div>
-      <div style="margin-bottom:24px">
-        <a class="btn primary" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20desde%20AWante%20por%20mi%20empresa%20o%20proyecto." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp (+54 9 11 5468-7647)</a>
+    </section>
+
+    <section id="contacto" class="sec-band" aria-labelledby="ct-title">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Contacto directo</div>
+          <h2 id="ct-title" class="sec-h2">Iniciemos una conversación ejecutiva</h2>
+          <p class="muted">
+            Escribinos directo por WhatsApp para una respuesta inmediata o dejá los datos de tu empresa o proyecto en el formulario.
+          </p>
+        </div>
+        <div class="contact-card">
+          <div style="margin-bottom:24px;text-align:center">
+            <a class="btn primary full" href="https://wa.me/5491154687647?text=Hola%20Ariana%2C%20te%20escribo%20desde%20AWante%20por%20mi%20empresa%20o%20proyecto." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Escribir directo por WhatsApp (+54 9 11 5468-7647)</a>
+          </div>
+          <form action="https://formspree.io/f/movnggor" method="POST">
+            <div class="field">
+              <label for="nombre">Nombre y apellido</label>
+              <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required>
+            </div>
+            <div class="field">
+              <label for="empresa">Empresa o proyecto</label>
+              <input id="empresa" name="Empresa" type="text" placeholder="Nombre de la empresa, desarrollo o unidad">
+            </div>
+            <div class="field">
+              <label for="email">Correo corporativo o teléfono</label>
+              <input id="email" name="Email" type="email" placeholder="tu@empresa.com" required>
+            </div>
+            <div class="field">
+              <label for="mensaje">Objetivo o escenario actual</label>
+              <textarea id="mensaje" name="Mensaje" placeholder="¿Qué decisión comercial, activo o proyecto querés poner en marcha?"></textarea>
+            </div>
+            <input type="hidden" name="_subject" value="Nuevo contacto ejecutivo desde AWante">
+            <input type="text" name="_gotcha" style="display:none">
+            <button class="btn primary full" type="submit">
+              <i class="fa-regular fa-envelope"></i> Enviar consulta a dirección
+            </button>
+          </form>
+        </div>
       </div>
-      <form action="https://formspree.io/f/movnggor" method="POST">
-        <div class="field">
-          <label for="nombre">Nombre y apellido</label>
-          <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required>
-        </div>
-        <div class="field">
-          <label for="empresa">Empresa o proyecto</label>
-          <input id="empresa" name="Empresa" type="text" placeholder="Nombre de la empresa, desarrollo o unidad">
-        </div>
-        <div class="field">
-          <label for="email">Correo corporativo o teléfono</label>
-          <input id="email" name="Email" type="email" placeholder="tu@empresa.com" required>
-        </div>
-        <div class="field">
-          <label for="mensaje">Objetivo o escenario actual</label>
-          <textarea id="mensaje" name="Mensaje" placeholder="¿Qué decisión comercial, activo o proyecto querés poner en marcha?"></textarea>
-        </div>
-        <input type="hidden" name="_subject" value="Nuevo contacto ejecutivo desde AWante">
-        <input type="text" name="_gotcha" style="display:none">
-        <button class="btn primary full" type="submit">
-          <i class="fa-regular fa-envelope"></i> Enviar consulta a dirección
-        </button>
-      </form>
     </section>
   </main>
 
   <footer role="contentinfo">
     <div class="foot-wrap container">
       <div class="foot-brand" aria-label="AWante — Consultoría estratégica">
-        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 32" role="img" aria-label="AWante" style="height:28px;width:auto">
-          <g transform="translate(0,1) scale(0.55)" fill="none" stroke="#EADDC2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 185 44" role="img" aria-label="AWante" style="height:34px;width:auto">
+          <g transform="translate(0,2) scale(0.55)" fill="none" stroke="#EADDC2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 67L32.5 3L45 67M12 45L38 45M55 3L65 67L75 25L85 67L95 3"/>
           </g>
-          <g><text x="58" y="24" class="logo-text">ante</text></g>
+          <text x="58" y="38.5" font-family="Manrope, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5" fill="#F0EDE1">ante</text>
         </svg>
       </div>
       <div class="foot-slogan">De la decisión estratégica a la operación comercial · Maldonado y Buenos Aires</div>
